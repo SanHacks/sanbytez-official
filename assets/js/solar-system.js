@@ -1,80 +1,97 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Handle overlay and reveal animation
-    setTimeout(() => {
-        const overlay = document.querySelector('.solar-system-overlay');
-        const solarSystem = document.querySelector('.solar-system');
-        
-        if (overlay && solarSystem) {
-            overlay.classList.add('fade-out');
-            solarSystem.classList.add('visible');
-        }
-    }, 1500);
-
-    // Initialize orbits and planets
-    const orbits = document.querySelectorAll('.orbit');
-    orbits.forEach((orbit, index) => {
-        const radius = (index + 1) * 100; // 100px increment for each orbit
-        const planet = orbit.querySelector('.planet');
-        if (planet) {
-            // Set orbit radius as CSS variable
-            planet.style.setProperty('--orbit-radius', `${radius}px`);
-            // Add orbit animation with different speeds for each planet
-            planet.style.animation = `orbit ${10 + index * 5}s linear infinite`;
-        }
-    });
-
-    // Add hover effects and click handlers for planets
+    const solarSystem = document.querySelector('.solar-system');
     const planets = document.querySelectorAll('.planet');
-    planets.forEach(planet => {
-        // Hover effect
-        planet.addEventListener('mouseenter', function() {
-            this.style.transform = `${this.style.transform} scale(1.2)`;
-        });
+    const sun = document.querySelector('.sun');
+    const orbits = document.querySelectorAll('.orbit');
 
-        planet.addEventListener('mouseleave', function() {
-            this.style.transform = this.style.transform.replace(' scale(1.2)', '');
-        });
+    function initSolarSystem() {
+        // Fade in solar system
+        setTimeout(() => {
+            solarSystem.classList.add('visible');
+        }, 500);
 
-        // Click navigation
-        planet.addEventListener('click', function() {
-            const content = this.querySelector('.planet-content');
-            if (content) {
-                const icon = content.querySelector('i');
-                if (icon) {
-                    // Map icons to section IDs
-                    const sectionMap = {
-                        'lni-gift': '#offers',
-                        'lni-layout': '#pricing',
-                        'lni-move': '#testimonials',
-                        'lni-layers': '#contact'
-                    };
-                    
-                    // Find matching section and scroll
-                    for (const [iconClass, sectionId] of Object.entries(sectionMap)) {
-                        if (icon.classList.contains(iconClass)) {
-                            const section = document.querySelector(sectionId);
-                            if (section) {
-                                section.scrollIntoView({ behavior: 'smooth' });
-                            }
-                            break;
-                        }
-                    }
-                }
+        // Initialize planet positions
+        orbits.forEach((orbit, index) => {
+            const planet = orbit.querySelector('.planet');
+            if (planet) {
+                // Set initial random position on orbit
+                const randomAngle = Math.random() * 360;
+                planet.style.transform = `rotate(${randomAngle}deg) translateX(${orbit.offsetWidth / 2}px) rotate(-${randomAngle}deg)`;
             }
         });
-    });
 
-    // Sun interaction
-    const sun = document.querySelector('.sun');
-    if (sun) {
-        sun.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        // Add hover effects for planets
+        planets.forEach(planet => {
+            const ring = planet.querySelector('.planet-ring');
+
+            planet.addEventListener('mouseenter', function() {
+                this.style.transform = `${this.style.transform} scale(1.2)`;
+                if (ring) ring.style.transform = 'translate(-50%, -50%) rotateX(75deg) scale(1.2)';
+                this.style.boxShadow = '0 0 25px rgba(255, 255, 255, 0.3)';
+            });
+
+            planet.addEventListener('mouseleave', function() {
+                this.style.transform = this.style.transform.replace(' scale(1.2)', '');
+                if (ring) ring.style.transform = 'translate(-50%, -50%) rotateX(75deg)';
+                this.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.2)';
+            });
+
+            // Click navigation with smooth scroll
+            planet.addEventListener('click', function() {
+                const content = this.querySelector('.planet-content');
+                if (content) {
+                    const section = content.querySelector('span').textContent.toLowerCase();
+                    const targetSection = document.getElementById(section);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
             });
         });
-        
-        // Add pulse animation class
-        sun.classList.add('pulse-animation');
+
+        // Enhanced sun interactions
+        if (sun) {
+            const sunGlow = sun.querySelector('.sun-glow');
+            let glowAnimation;
+
+            sun.addEventListener('mouseenter', () => {
+                if (sunGlow) {
+                    clearTimeout(glowAnimation);
+                    sunGlow.style.transform = 'translate(-50%, -50%) scale(1.2)';
+                    sunGlow.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%)';
+                }
+            });
+
+            sun.addEventListener('mouseleave', () => {
+                if (sunGlow) {
+                    sunGlow.style.transform = 'translate(-50%, -50%) scale(1)';
+                    sunGlow.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%)';
+                    
+                    // Smooth transition back to original state
+                    glowAnimation = setTimeout(() => {
+                        sunGlow.style.transform = 'translate(-50%, -50%)';
+                    }, 300);
+                }
+            });
+
+            // Smooth scroll to top with easing
+            sun.addEventListener('click', () => {
+                const scrollToTop = () => {
+                    const currentPosition = window.pageYOffset;
+                    if (currentPosition > 0) {
+                        window.requestAnimationFrame(scrollToTop);
+                        window.scrollTo(0, currentPosition - currentPosition / 8);
+                    }
+                };
+                scrollToTop();
+            });
+        }
     }
+
+    // Initialize when everything is loaded
+    window.addEventListener('load', initSolarSystem);
 });
+

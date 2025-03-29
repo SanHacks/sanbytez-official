@@ -1,4 +1,5 @@
-<body class="opening hide-UI view-2D zoom-large data-close controls-close">
+<body class="opening hide-UI data-close controls-close">
+  <link rel="stylesheet" href="assets/css/system-descriptions.css">
   <style>
     .infos {
       color: #6B7280;
@@ -52,21 +53,21 @@
   </div>
   <div id="controls">
     <label class="set-view">
-      <input type="checkbox">
+      <input type="checkbox" title="Toggle View" aria-label="Toggle View">
     </label>
     <label class="set-zoom">
-      <input type="checkbox">
+      <input type="checkbox" title="Toggle Zoom" aria-label="Toggle Zoom">
     </label>
     <label>
-      <input type="radio" class="set-speed" name="scale" checked>
+      <input type="radio" class="set-speed" name="scale" checked title="View Overview" aria-label="View Overview">
       <span>Overview</span>
     </label>
     <label>
-      <input type="radio" class="set-size" name="scale">
+      <input type="radio" class="set-size" name="scale" title="View Services" aria-label="View Services">
       <span>Services</span>
     </label>
     <label>
-      <input type="radio" class="set-distance" name="scale">
+      <input type="radio" class="set-distance" name="scale" title="View Stack" aria-label="View Stack">
       <span>Stack</span>
     </label>
   </div>
@@ -168,7 +169,7 @@
       </div>
     </div>
   </div>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
   <script type="text/javascript">
   if (typeof jQuery == 'undefined') { 
     document.write(unescape("%3Cscript src='js/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
@@ -176,11 +177,12 @@
   </script>
   <script src="js/prefixfree.min.js"></script>
   <script src="js/scripts.min.js"></script>
+  <script src="assets/js/system-view-randomizer.js"></script>
   <!-- inline styling -->
    <style>
     @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 /*
-  Copyright (c) 2012 Julian Garnier
+  Modified from original work by Julian Garnier
   Licensed under the MIT license
 */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {

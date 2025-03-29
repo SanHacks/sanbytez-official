@@ -60,6 +60,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="assets/css/solar-system.css" />
+    <link rel="stylesheet" href="assets/css/cookie-consent.css" />
     <style>
       /* Modern color scheme */
       :root {
@@ -1408,42 +1409,57 @@
     <!-- ====== Solar System Start ====== -->
     <section id="solar-system" class="solar-system-hero">
       <div class="solar-system-container">
-        <div class="sun">
-          <img src="assets/images/logo/logo.svg" alt="Logo" class="logo-sun pulse-animation" />
-          <div class="sun-glow"></div>
-        </div>
-        <div class="orbit orbit-1">
-          <div class="planet planet-1">
-            <div class="planet-content">
-              <i class="lni lni-gift"></i>
-              <span>Services</span>
+        <div class="solar-system">
+          <!-- Central Sun -->
+          <div class="sun">
+            <img src="assets/images/logo/logo.svg" alt="Logo" class="logo-sun" />
+            <div class="sun-glow"></div>
+          </div>
+          
+          <!-- Orbit System -->
+          <div class="orbit-system">
+            <!-- Services Planet -->
+            <div class="orbit orbit-1">
+              <div class="planet">
+                <div class="planet-content">
+                  <i class="lni lni-gift"></i>
+                  <span>Services</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Solutions Planet -->
+            <div class="orbit orbit-2">
+              <div class="planet">
+                <div class="planet-content">
+                  <i class="lni lni-layout"></i>
+                  <span>Solutions</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Products Planet -->
+            <div class="orbit orbit-3">
+              <div class="planet">
+                <div class="planet-content">
+                  <i class="lni lni-move"></i>
+                  <span>Products</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Contact Planet -->
+            <div class="orbit orbit-4">
+              <div class="planet">
+                <div class="planet-content">
+                  <i class="lni lni-layers"></i>
+                  <span>Contact</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="orbit orbit-2">
-          <div class="planet planet-2">
-            <div class="planet-content">
-              <i class="lni lni-layout"></i>
-              <span>Solutions</span>
-            </div>
-          </div>
-        </div>
-        <div class="orbit orbit-3">
-          <div class="planet planet-3">
-            <div class="planet-content">
-              <i class="lni lni-move"></i>
-              <span>Products</span>
-            </div>
-          </div>
-        </div>
-        <div class="orbit orbit-4">
-          <div class="planet planet-4">
-            <div class="planet-content">
-              <i class="lni lni-layers"></i>
-              <span>Contact</span>
-            </div>
-          </div>
-        </div>
+      </div>
           <div class="planet planet-2 hover-effect">
             <div class="planet-content">
               <i class="lni lni-consulting"></i>
@@ -1788,6 +1804,7 @@
     </script>
     <script src="assets/js/solar-system.js"></script>
     <script src="assets/js/contact-form.js"></script>
+    <script src="assets/js/cookie-consent.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
@@ -1799,5 +1816,140 @@
         }, 1500);
       });
     </script>
+    <!-- Cookie Consent Popup -->
+    <div class="modal fade" id="cookieConsentPopup" tabindex="-1" aria-labelledby="cookieConsentLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cookieConsentLabel">Cookie Preferences</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>We use cookies to enhance your browsing experience and analyze our traffic. Please choose your cookie preferences below:</p>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="necessaryCookies" checked disabled>
+              <label class="form-check-label" for="necessaryCookies">
+                Necessary Cookies - Required for the website to function properly
+              </label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="analyticsCookies" checked>
+              <label class="form-check-label" for="analyticsCookies">
+                Analytics Cookies - Help us improve our website
+              </label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="marketingCookies">
+              <label class="form-check-label" for="marketingCookies">
+                Marketing Cookies - Used for targeted advertising
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="rejectCookies">Reject All</button>
+            <button type="button" class="btn btn-primary" id="acceptCookies">Accept Selected</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h6>Last Updated: March 29, 2025</h6>
+            <p>This Privacy Policy describes how SanBytez ("we," "us," or "our") collects, uses, and protects your personal information in accordance with the Protection of Personal Information Act (POPIA) of South Africa.</p>
+            
+            <h6>1. Information We Collect</h6>
+            <p>We collect information that you provide directly to us, including:</p>
+            <ul>
+              <li>Name and contact information</li>
+              <li>Email address</li>
+              <li>Phone number</li>
+              <li>Company details</li>
+              <li>Website usage data</li>
+            </ul>
+
+            <h6>2. How We Use Your Information</h6>
+            <p>We use your information in accordance with POPIA for:</p>
+            <ul>
+              <li>Providing our services</li>
+              <li>Communicating with you</li>
+              <li>Improving our website</li>
+              <li>Marketing purposes (with consent)</li>
+            </ul>
+
+            <h6>3. Data Protection</h6>
+            <p>We implement appropriate security measures to protect your personal information in accordance with POPIA requirements.</p>
+
+            <h6>4. Your Rights</h6>
+            <p>Under POPIA, you have the right to:</p>
+            <ul>
+              <li>Access your personal information</li>
+              <li>Correct or update your information</li>
+              <li>Request deletion of your information</li>
+              <li>Object to processing of your information</li>
+            </ul>
+
+            <h6>5. Contact Us</h6>
+            <p>For privacy-related inquiries, contact our Information Officer at privacy@sanbytez.africa</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="termsModalLabel">Terms of Service</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h6>Last Updated: March 29, 2025</h6>
+            <p>These Terms of Service ("Terms") govern your use of SanBytez's services and website. By using our services, you agree to these Terms.</p>
+
+            <h6>1. Acceptance of Terms</h6>
+            <p>By accessing or using our services, you agree to be bound by these Terms and our Privacy Policy.</p>
+
+            <h6>2. Service Description</h6>
+            <p>SanBytez provides digital solutions and services in accordance with South African law, including:</p>
+            <ul>
+              <li>Web development</li>
+              <li>Mobile app development</li>
+              <li>Digital consulting</li>
+              <li>IT support services</li>
+            </ul>
+
+            <h6>3. User Obligations</h6>
+            <p>You agree to:</p>
+            <ul>
+              <li>Provide accurate information</li>
+              <li>Maintain confidentiality of your account</li>
+              <li>Comply with South African laws</li>
+              <li>Use services responsibly</li>
+            </ul>
+
+            <h6>4. Intellectual Property</h6>
+            <p>All content and materials on our website are protected by South African intellectual property laws.</p>
+
+            <h6>5. Limitation of Liability</h6>
+            <p>Our liability is limited in accordance with the Consumer Protection Act and other applicable South African laws.</p>
+
+            <h6>6. Governing Law</h6>
+            <p>These Terms are governed by the laws of the Republic of South Africa.</p>
+
+            <h6>7. Contact Information</h6>
+            <p>For legal inquiries, contact us at legal@sanbytez.africa</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,73 @@
+/* Service Descriptions */
+.set-size #sun dl.infos dd:after {
+  content: 'Enterprise Solutions';
+}
+
+.set-size #mercury dl.infos dd:after {
+  content: 'Full Stack Development';
+}
+
+.set-size #venus dl.infos dd:after {
+  content: 'Native & Cross-platform';
+}
+
+.set-size #earth dl.infos dd:after {
+  content: 'Machine Learning & AI';
+}
+
+.set-size #mars dl.infos dd:after {
+  content: 'AWS & Azure Expert';
+}
+
+.set-size #jupiter dl.infos dd:after {
+  content: 'Security & Compliance';
+}
+
+.set-size #saturn dl.infos dd:after {
+  content: 'Technical Strategy';
+}
+
+.set-size #uranus dl.infos dd:after {
+  content: 'CI/CD & Automation';
+}
+
+.set-size #neptune dl.infos dd:after {
+  content: '24/7 Tech Support';
+}
+
+/* Stack Information */
+.set-distance #sun dl.infos dd:after {
+  content: 'Core Technologies';
+}
+
+.set-distance #mercury dl.infos dd:after {
+  content: 'React, Node.js, Python';
+}
+
+.set-distance #venus dl.infos dd:after {
+  content: 'React Native, Flutter';
+}
+
+.set-distance #earth dl.infos dd:after {
+  content: 'TensorFlow, PyTorch';
+}
+
+.set-distance #mars dl.infos dd:after {
+  content: 'Cloud Architecture';
+}
+
+.set-distance #jupiter dl.infos dd:after {
+  content: 'Cybersecurity Tools';
+}
+
+.set-distance #saturn dl.infos dd:after {
+  content: 'Enterprise Systems';
+}
+
+.set-distance #uranus dl.infos dd:after {
+  content: 'Docker, Kubernetes';
+}
+
+.set-distance #neptune dl.infos dd:after {
+  content: 'Support Systems';
+}
