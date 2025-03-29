@@ -214,18 +214,6 @@
         pointer-events: none;
       }
 
-      .hero-text-container h1,
-      .hero-text-container p {
-        color: rgba(255, 255, 255, 0.95);
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        margin: 0;
-      }
-
-      .hero-text-container p {
-        margin-top: 1rem;
-        opacity: 0.9;
-      }
-
       .hero-content {
         position: relative;
         z-index: 2;
@@ -509,6 +497,12 @@
         // Initialize modals
         const serviceModal = new bootstrap.Modal(document.getElementById('serviceModal'));
         const offerModal = new bootstrap.Modal(document.getElementById('offerModal'));
+        const featuresModal = new bootstrap.Modal(document.getElementById('featuresModal'));
+        const howItWorksModal = new bootstrap.Modal(document.getElementById('howItWorksModal'));
+        const privacyModal = new bootstrap.Modal(document.getElementById('privacyModal'));
+        const termsModal = new bootstrap.Modal(document.getElementById('termsModal'));
+        const refundModal = new bootstrap.Modal(document.getElementById('refundModal'));
+        
         const modalTitle = document.querySelector('.modal-title');
         const offerModalTitle = document.querySelector('#offerModal .modal-title');
         const serviceContents = document.querySelectorAll('.service-content');
@@ -516,7 +510,6 @@
         const heroText = document.querySelector('.hero-text-container');
         const heroSection = document.querySelector('.solar-system-hero');
         const overlay = document.querySelector('.solar-system-overlay');
-
 
         let overlayTimeout;
         let mouseInSection = false;
@@ -1490,16 +1483,115 @@
     </section>
     <!-- ====== Solar System End ====== -->
 
-    <!-- ====== Footer Start ====== -->
+    <!-- Features Modal -->
+    <div class="modal fade" id="featuresModal" tabindex="-1" aria-labelledby="featuresModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="featuresModalLabel">Features</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h6>Our Key Features</h6>
+            <ul>
+              <li>Advanced AI Solutions</li>
+              <li>Enterprise-grade Cloud Services</li>
+              <li>Custom Software Development</li>
+              <li>24/7 Technical Support</li>
+              <li>Scalable Infrastructure</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How it works Modal -->
+    <div class="modal fade" id="howItWorksModal" tabindex="-1" aria-labelledby="howItWorksModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="howItWorksModalLabel">How it works</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ol>
+              <li>Initial Consultation</li>
+              <li>Requirement Analysis</li>
+              <li>Project Planning</li>
+              <li>Development & Testing</li>
+              <li>Deployment & Support</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h6>Data Collection</h6>
+            <p>We collect only the necessary data to provide our services.</p>
+            <h6>Data Protection</h6>
+            <p>All data is encrypted and stored securely.</p>
+            <h6>User Rights</h6>
+            <p>Users have the right to access, modify, and delete their data.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="termsModalLabel">Terms of Service</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h6>Service Agreement</h6>
+            <p>Terms and conditions for using our services.</p>
+            <h6>Service Levels</h6>
+            <p>Guaranteed service levels and support.</p>
+            <h6>Intellectual Property</h6>
+            <p>Ownership and usage rights of developed software.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Refund Policy Modal -->
+    <div class="modal fade" id="refundModal" tabindex="-1" aria-labelledby="refundModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="refundModalLabel">Refund Policy</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h6>Refund Conditions</h6>
+            <p>Conditions for refund eligibility.</p>
+            <h6>Refund Process</h6>
+            <p>Steps to request a refund.</p>
+            <h6>Timeline</h6>
+            <p>Expected processing time for refunds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
       <div class="shape shape-1">
         <img src="assets/images/footer/shape-1.svg" alt="shape" />
       </div>
       <div class="shape shape-2">
         <img src="assets/images/footer/shape-2.svg" alt="shape" />
-      </div>
-      <div class="shape shape-3">
-        <img src="assets/images/footer/shape-3.svg" alt="shape" />
       </div>
       <div class="ud-footer-widgets">
         <div class="container">
@@ -1562,16 +1654,19 @@
                 <h5 class="ud-widget-title">Features</h5>
                 <ul class="ud-widget-links">
                   <li>
-                    <a href="javascript:void(0)">How it works</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#featuresModal">How it works</a>
                   </li>
                   <li>
-                    <a href="javascript:void(0)">Privacy policy</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#howItWorksModal">Features</a>
                   </li>
                   <li>
-                    <a href="javascript:void(0)">Terms of service</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy policy</a>
                   </li>
                   <li>
-                    <a href="javascript:void(0)">Refund policy</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of service</a>
+                  </li>
+                  <li>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#refundModal">Refund policy</a>
                   </li>
                 </ul>
               </div>
@@ -1669,13 +1764,19 @@
             <div class="col-md-8">
               <ul class="ud-footer-bottom-left">
                 <li>
-                  <a href="javascript:void(0)">Privacy policy</a>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#featuresModal">Features</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0)">Support policy</a>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#howItWorksModal">How it works</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0)">Terms of service</a>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy policy</a>
+                </li>
+                <li>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of service</a>
+                </li>
+                <li>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#refundModal">Refund policy</a>
                 </li>
               </ul>
             </div>

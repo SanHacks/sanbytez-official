@@ -31,23 +31,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Available options for randomization
     const viewOptions = ['2D', '3D'];
-    const zoomOptions = ['zoom-large', 'zoom-close'];
     const scaleOptions = ['scale-stretched', 'scale-d', 'scale-s'];
     
     // Randomly select options
     const randomView = viewOptions[Math.floor(Math.random() * viewOptions.length)];
-    const randomZoom = zoomOptions[Math.floor(Math.random() * zoomOptions.length)];
     const randomScale = scaleOptions[Math.floor(Math.random() * scaleOptions.length)];
     
     // Get the body element
     const body = document.body;
     
     // Remove default classes
-    body.classList.remove('view-2D', 'view-3D', 'zoom-large', 'zoom-close');
+    body.classList.remove('view-2D', 'view-3D');
     
     // Add random classes
     body.classList.add(`view-${randomView}`);
-    body.classList.add(randomZoom);
     
     // Update the universe div
     const universe = document.getElementById('universe');
@@ -57,16 +54,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update the corresponding controls
     const viewInput = document.querySelector('.set-view input');
-    const zoomInput = document.querySelector('.set-zoom input');
     const scaleInputs = document.querySelectorAll('[name="scale"]');
     
     if (viewInput) {
         viewInput.checked = randomView === '3D';
     }
     
-    if (zoomInput) {
-        zoomInput.checked = randomZoom === 'zoom-close';
-    }
     
     if (scaleInputs) {
         scaleInputs.forEach(input => {
