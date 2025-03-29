@@ -35,39 +35,39 @@
   content: '24/7 Tech Support';
 }
 
-/* Stack Information */
+/* Project Counts */
 .set-distance #sun dl.infos dd:after {
-  content: 'Core Technologies';
+  content: '50+ Enterprise Projects';
 }
 
 .set-distance #mercury dl.infos dd:after {
-  content: 'React, Node.js, Python';
+  content: '100+ Web Applications';
 }
 
 .set-distance #venus dl.infos dd:after {
-  content: 'React Native, Flutter';
+  content: '45+ Mobile Apps';
 }
 
 .set-distance #earth dl.infos dd:after {
-  content: 'TensorFlow, PyTorch';
+  content: '30+ AI Solutions';
 }
 
 .set-distance #mars dl.infos dd:after {
-  content: 'Cloud Architecture';
+  content: '75+ Cloud Deployments';
 }
 
 .set-distance #jupiter dl.infos dd:after {
-  content: 'Cybersecurity Tools';
+  content: '60+ Security Audits';
 }
 
 .set-distance #saturn dl.infos dd:after {
-  content: 'Enterprise Systems';
+  content: '40+ Consulting Projects';
 }
 
 .set-distance #uranus dl.infos dd:after {
-  content: 'Docker, Kubernetes';
+  content: '80+ DevOps Pipelines';
 }
 
 .set-distance #neptune dl.infos dd:after {
-  content: 'Support Systems';
+  content: '1000+ Support Tickets';
 }

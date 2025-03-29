@@ -5,6 +5,9 @@
       color: #6B7280;
       opacity: 0.8;
       transition: opacity 0.3s ease;
+      -webkit-backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
     }
 
     .infos dt {
@@ -36,39 +39,39 @@
       document.body.classList.add('interactive');
     });
   </script>
-  <div id="navbar">
-    <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
-    <a id="toggle-controls" href="#controls"><i class="icon-controls"></i>Controls</a>
+  <div id="navbar" role="navigation" aria-label="Main Navigation">
+    <a id="toggle-data" href="#data" title="View Data" aria-label="View Data"><i class="icon-data"></i>Data</a>
+    <a id="toggle-controls" href="#controls" title="View Controls" aria-label="View Controls"><i class="icon-controls"></i>Controls</a>
   </div>
   <div id="data">
-    <a class="sun" title="Core Services" href="#core">Core Services</a>
-    <a class="mercury" title="Web Development" href="#web">Web Development</a>
-    <a class="venus" title="Mobile Apps" href="#mobile">Mobile Apps</a>
-    <a class="earth active" title="AI Solutions" href="#ai">AI Solutions</a>
-    <a class="mars" title="Cloud Services" href="#cloud">Cloud Services</a>
-    <a class="jupiter" title="Cybersecurity" href="#security">Cybersecurity</a>
-    <a class="saturn" title="Consulting" href="#consulting">Consulting</a>
-    <a class="uranus" title="DevOps" href="#devops">DevOps</a>
-    <a class="neptune" title="Support" href="#support">Support</a>
+    <a class="sun" title="Core Services" href="#core" aria-label="View Core Services">Core Services</a>
+    <a class="mercury" title="Web Development" href="#web" aria-label="View Web Development Services">Web Development</a>
+    <a class="venus" title="Mobile Apps" href="#mobile" aria-label="View Mobile App Services">Mobile Apps</a>
+    <a class="earth active" title="AI Solutions" href="#ai" aria-label="View AI Solutions">AI Solutions</a>
+    <a class="mars" title="Cloud Services" href="#cloud" aria-label="View Cloud Services">Cloud Services</a>
+    <a class="jupiter" title="Cybersecurity" href="#security" aria-label="View Cybersecurity Services">Cybersecurity</a>
+    <a class="saturn" title="Consulting" href="#consulting" aria-label="View Consulting Services">Consulting</a>
+    <a class="uranus" title="DevOps" href="#devops" aria-label="View DevOps Services">DevOps</a>
+    <a class="neptune" title="Support" href="#support" aria-label="View Support Services">Support</a>
   </div>
   <div id="controls">
-    <label class="set-view">
-      <input type="checkbox" title="Toggle View" aria-label="Toggle View">
+    <label class="set-view" for="toggle-view">View
+      <input type="checkbox" id="toggle-view" title="Toggle View" aria-label="Toggle View" placeholder="Toggle View">
     </label>
-    <label class="set-zoom">
-      <input type="checkbox" title="Toggle Zoom" aria-label="Toggle Zoom">
+    <label class="set-zoom" for="toggle-zoom">Zoom
+      <input type="checkbox" id="toggle-zoom" title="Toggle Zoom" aria-label="Toggle Zoom" placeholder="Toggle Zoom">
     </label>
-    <label>
-      <input type="radio" class="set-speed" name="scale" checked title="View Overview" aria-label="View Overview">
+    <label for="view-overview">
+      <input type="radio" id="view-overview" class="set-speed" name="scale" checked title="View Overview" aria-label="View Overview" placeholder="Overview">
       <span>Overview</span>
     </label>
-    <label>
-      <input type="radio" class="set-size" name="scale" title="View Services" aria-label="View Services">
+    <label for="view-services">
+      <input type="radio" id="view-services" class="set-size" name="scale" title="View Services" aria-label="View Services" placeholder="Services">
       <span>Services</span>
     </label>
-    <label>
-      <input type="radio" class="set-distance" name="scale" title="View Stack" aria-label="View Stack">
-      <span>Stack</span>
+    <label for="view-projects">
+      <input type="radio" id="view-projects" class="set-distance" name="scale" title="View Project Counts" aria-label="View Project Counts" placeholder="Project Counts">
+      <span>Projects</span>
     </label>
   </div>
   <div id="universe" class="scale-stretched">
@@ -178,6 +181,16 @@
   <script src="js/prefixfree.min.js"></script>
   <script src="js/scripts.min.js"></script>
   <script src="assets/js/system-view-randomizer.js"></script>
+  <script>
+    // Ensure randomization happens after all scripts are loaded
+    window.addEventListener('load', function() {
+      // Force a small delay to ensure DOM is fully ready
+      setTimeout(function() {
+        const event = new Event('DOMContentLoaded');
+        document.dispatchEvent(event);
+      }, 100);
+    });
+  </script>
   <!-- inline styling -->
    <style>
     @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
