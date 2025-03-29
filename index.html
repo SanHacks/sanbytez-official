@@ -63,6 +63,8 @@
     <style>
       /* Modern color scheme */
       :root {
+        --animate-duration: 0.5s;
+        --animate-delay: 0.1s;
         --primary-color: #2563eb;
         --secondary-color: #1e40af;
         --text-color: #1f2937;
@@ -828,10 +830,10 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-section-title">
-              <span>Offers</span>
-              <h2>Main Offers of SanBytez</h2>
+              <span>Services</span>
+              <h2>Our Technology Solutions</h2>
               <p>
-                We provide a wide range of software solutions tailored to meet your business needs, including e-commerce platforms and related services.
+                We deliver cutting-edge technology solutions to transform your business and drive innovation.
               </p>
             </div>
           </div>
@@ -843,9 +845,9 @@
                 <i class="lni lni-gift"></i>
               </div>
               <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Magento Development</h3>
+                <h3 class="ud-feature-title">AI-Powered Solutions</h3>
                 <p class="ud-feature-desc">
-                  Expert Magento development services to build robust e-commerce solutions.
+                  Advanced AI algorithms and machine learning solutions for business optimization.
                 </p>
                 <button class="ud-feature-link btn btn-link" data-bs-toggle="modal" data-bs-target="#offerModal" data-offer="magento">
                   Learn More
@@ -859,9 +861,9 @@
                 <i class="lni lni-move"></i>
               </div>
               <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Shopify Integration</h3>
+                <h3 class="ud-feature-title">Responsive Web Applications</h3>
                 <p class="ud-feature-desc">
-                  Seamless Shopify integration to enhance your online store capabilities.
+                  Modern, scalable web solutions built with cutting-edge technologies.
                 </p>
                 <a href="javascript:void(0)" class="ud-feature-link">
                   Learn More
@@ -875,9 +877,9 @@
                 <i class="lni lni-layout"></i>
               </div>
               <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Drupal Solutions</h3>
+                <h3 class="ud-feature-title">Cross-Platform Mobile Solutions</h3>
                 <p class="ud-feature-desc">
-                  Comprehensive Drupal solutions for scalable and secure web applications.
+                  High-performance mobile apps that work seamlessly across platforms.
                 </p>
                 <a href="javascript:void(0)" class="ud-feature-link">
                   Learn More
@@ -891,9 +893,9 @@
                 <i class="lni lni-layers"></i>
               </div>
               <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Laravel Development</h3>
+                <h3 class="ud-feature-title">Advanced AI Algorithms</h3>
                 <p class="ud-feature-desc">
-                  Custom Laravel development for dynamic and powerful web applications.
+                  State-of-the-art AI solutions for complex business challenges.
                 </p>
                 <a href="javascript:void(0)" class="ud-feature-link">
                   Learn More
@@ -1336,42 +1338,63 @@
                     data-wow-delay=".2s"
             >
               <h3 class="ud-contact-form-title">Send us a Message</h3>
-              <form class="ud-contact-form">
-                <div class="ud-form-group">
+              <form class="ud-contact-form" id="contactForm" onsubmit="return handleSubmit(event)">
+                <div class="ud-form-group animate__animated">
                   <label for="fullName">Full Name*</label>
                   <input
                           type="text"
+                          id="fullName"
                           name="fullName"
-                          placeholder="Adam Gelius"
+                          placeholder="Enter your full name"
+                          required
+                          minlength="2"
+                          class="form-control"
                   />
+                  <div class="invalid-feedback">Please enter your full name</div>
                 </div>
-                <div class="ud-form-group">
+                <div class="ud-form-group animate__animated">
                   <label for="email">Email*</label>
                   <input
                           type="email"
+                          id="email"
                           name="email"
-                          placeholder="example@yourmail.com"
+                          placeholder="Enter your email"
+                          required
+                          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                          class="form-control"
                   />
+                  <div class="invalid-feedback">Please enter a valid email address</div>
                 </div>
-                <div class="ud-form-group">
+                <div class="ud-form-group animate__animated">
                   <label for="phone">Phone*</label>
                   <input
-                          type="text"
+                          type="tel"
+                          id="phone"
                           name="phone"
-                          placeholder="+885 1254 5211 552"
+                          placeholder="Enter your phone number"
+                          required
+                          pattern="[0-9+\s-]{10,}"
+                          class="form-control"
                   />
+                  <div class="invalid-feedback">Please enter a valid phone number</div>
                 </div>
-                <div class="ud-form-group">
+                <div class="ud-form-group animate__animated">
                   <label for="message">Message*</label>
                   <textarea
+                          id="message"
                           name="message"
-                          rows="1"
-                          placeholder="type your message here"
+                          rows="4"
+                          placeholder="Type your message here"
+                          required
+                          minlength="10"
+                          class="form-control"
                   ></textarea>
+                  <div class="invalid-feedback">Please enter a message (minimum 10 characters)</div>
                 </div>
-                <div class="ud-form-group mb-0">
-                  <button type="submit" class="ud-main-btn">
-                    Send Message
+                <div class="ud-form-group mb-0 animate__animated">
+                  <button type="submit" class="ud-main-btn" id="submitBtn">
+                    <span class="btn-text">Send Message</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                   </button>
                 </div>
               </form>
@@ -1385,20 +1408,42 @@
     <!-- ====== Solar System Start ====== -->
     <section id="solar-system" class="solar-system-hero">
       <div class="solar-system-container">
-        <div class="sun pulse-animation">
-          <img src="assets/images/logo/logo.svg" alt="Logo" class="logo-sun" />
+        <div class="sun">
+          <img src="assets/images/logo/logo.svg" alt="Logo" class="logo-sun pulse-animation" />
           <div class="sun-glow"></div>
         </div>
         <div class="orbit orbit-1">
-          <div class="planet planet-1 hover-effect">
+          <div class="planet planet-1">
             <div class="planet-content">
-              <i class="lni lni-shopify"></i>
-              <span>E-commerce</span>
+              <i class="lni lni-gift"></i>
+              <span>Services</span>
             </div>
-            <div class="planet-trail"></div>
           </div>
         </div>
         <div class="orbit orbit-2">
+          <div class="planet planet-2">
+            <div class="planet-content">
+              <i class="lni lni-layout"></i>
+              <span>Solutions</span>
+            </div>
+          </div>
+        </div>
+        <div class="orbit orbit-3">
+          <div class="planet planet-3">
+            <div class="planet-content">
+              <i class="lni lni-move"></i>
+              <span>Products</span>
+            </div>
+          </div>
+        </div>
+        <div class="orbit orbit-4">
+          <div class="planet planet-4">
+            <div class="planet-content">
+              <i class="lni lni-layers"></i>
+              <span>Contact</span>
+            </div>
+          </div>
+        </div>
           <div class="planet planet-2 hover-effect">
             <div class="planet-content">
               <i class="lni lni-consulting"></i>
@@ -1742,6 +1787,7 @@
       window.document.addEventListener("scroll", onScroll);
     </script>
     <script src="assets/js/solar-system.js"></script>
+    <script src="assets/js/contact-form.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
