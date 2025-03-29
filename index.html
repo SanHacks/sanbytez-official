@@ -14,11 +14,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SanBytez</title>
+    <title>SanBytez - Innovative Software Solutions</title>
 
     <!-- Primary Meta Tags -->
-<meta name="title" content=SanBytez">
-<meta name="description" content="SanBytez">
+    <meta name="title" content="SanBytez - Innovative Software Solutions">
+    <meta name="description" content="Leading software development company specializing in AI-powered solutions, cloud services, and enterprise software development. Transform your business with our cutting-edge technology.">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="color-scheme" content="light dark">
 
 <!-- Open Graph / Facebook -->
 <!--<meta property="og:type" content="website">-->
@@ -42,10 +44,247 @@
     />
 
     <!-- ===== All CSS files ===== -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
     <link rel="stylesheet" href="assets/css/ud-styles.css" />
+    
+    <!-- Preload key resources -->
+    <link rel="preload" href="assets/images/logo/logo.svg" as="image">
+    <link rel="preload" href="https://cdn.lineicons.com/4.0/lineicons.css" as="style">
+    <link rel="preload" href="assets/css/solar-system.css" as="style">
+    <script type="module" src="sw.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- PWA support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="assets/css/solar-system.css" />
+    <style>
+      /* Modern color scheme */
+      :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --text-color: #1f2937;
+        --bg-color: #f8fafc;
+        --header-height: 80px;
+        --gradient-start: #2563eb;
+        --gradient-end: #1e40af;
+      }
+      
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+      
+      .ud-header {
+        background-color: rgba(255, 255, 255, 0.95);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        height: var(--header-height);
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        transition: all 0.3s ease;
+      }
+
+      .ud-header.scrolled {
+        height: 70px;
+        background-color: rgba(255, 255, 255, 0.98);
+      }
+      
+      .navbar {
+        height: 100%;
+        padding: 0 1.5rem;
+      }
+      
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-brand img {
+        height: 45px;
+        transition: height 0.3s ease;
+      }
+
+      .scrolled .navbar-brand img {
+        height: 35px;
+      }
+      
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .navbar-nav .nav-item {
+        margin: 0;
+      }
+      
+      .ud-menu-scroll {
+        color: var(--text-color);
+        font-weight: 500;
+        padding: 0.75rem 1.25rem;
+        transition: all 0.3s ease;
+        position: relative;
+        text-decoration: none;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+      }
+      
+      .ud-menu-scroll:hover,
+      .ud-menu-scroll.active {
+        color: var(--primary-color);
+      }
+      
+      .ud-menu-scroll::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      
+      .ud-menu-scroll:hover::after,
+      .ud-menu-scroll.active::after {
+        width: 100%;
+      }
+
+      /* Hero section with iframe */
+      .solar-system-hero {
+        min-height: 100vh;
+        padding-top: var(--header-height);
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .solar-system-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        color: white;
+        text-align: center;
+        padding: 4rem 1rem;
+      }
+
+      .hero-backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+        z-index: 1;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(to right, #60a5fa, #3b82f6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-content p {
+        font-size: clamp(1.1rem, 2vw, 1.5rem);
+        margin-bottom: 3rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .solar-system-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        pointer-events: none;
+        opacity: 0.4;
+        mix-blend-mode: screen;
+        z-index: 0;
+      }
+
+      .btn {
+        padding: 0.875rem 2rem;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.875rem;
+      }
+
+      .btn-primary {
+        background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+        border: none;
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(37, 99, 235, 0.3);
+      }
+
+      .btn-outline-light {
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        background: transparent;
+        color: white;
+      }
+
+      .btn-outline-light:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          padding: 3rem 1rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 300px;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- ====== Header Start ====== -->
@@ -68,18 +307,20 @@
                   <li class="nav-item">
                     <a class="ud-menu-scroll" href="#home">Home</a>
                   </li>
-
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#services">Services</a>
+                  </li>
                   <li class="nav-item">
                     <a class="ud-menu-scroll" href="#about">About</a>
                   </li>
                   <li class="nav-item">
                     <a class="ud-menu-scroll" href="#pricing">Pricing</a>
                   </li>
-                  <!-- <li class="nav-item">
-                    <a class="ud-menu-scroll" href="#team">Team</a>
-                  </li> -->
                   <li class="nav-item">
                     <a class="ud-menu-scroll" href="#contact">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#solar-system">Solutions</a>
                   </li>
 <!--                  <li class="nav-item nav-item-has-children">-->
 <!--                    <a href="javascript:void(0)"> Pages </a>-->
@@ -129,48 +370,19 @@
     <!-- ====== Header End ====== -->
 
     <!-- ====== Hero Start ====== -->
-    <section class="ud-hero" id="home">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
-              <h1 class="ud-hero-title">
-                Comprehensive Software Solutions for Your Business Needs
-              </h1>
-              <p class="ud-hero-desc">
-                At SanBytez, we provide top-notch software solutions ranging from e-commerce platforms, Android applications, hosting services, AdSense integration, and more.
-              </p>
-              <ul class="ud-hero-buttons">
-                <li>
-                  <a href="#services" class="ud-main-btn ud-white-btn">
-                    Our Services
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" class="ud-main-btn ud-link-btn">
-                    Contact Us <i class="lni lni-arrow-right"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-<!--            <div-->
-<!--                    class="ud-hero-brands-wrapper wow fadeInUp"-->
-<!--                    data-wow-delay=".3s"-->
-<!--            >-->
-<!--              <img src="assets/images/hero/brand.svg" alt="brand" />-->
-<!--            </div>-->
-            <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
-              <img src="https://magestandard.com/wp-content/uploads/2017/10/aa-1024x497.png" alt="hero-image" />
-              <img
-                      src="assets/images/hero/dotted-shape.svg"
-                      alt="shape"
-                      class="shape shape-1"
-              />
-              <img
-                      src="assets/images/hero/dotted-shape.svg"
-                      alt="shape"
-                      class="shape shape-2"
-              />
+    <section id="home" class="solar-system-hero">
+      <div class="hero-backdrop"></div>
+      <iframe src="systemiframe.html" class="solar-system-iframe" title="Interactive Services Display"></iframe>
+      <div class="container position-relative">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="hero-content text-center">
+              <h1 class="animate__animated animate__fadeInDown">Welcome to SanBytez</h1>
+              <p class="animate__animated animate__fadeInUp animate__delay-1s">Transforming Ideas into Digital Reality</p>
+              <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-2s">
+                <a href="#services" class="btn btn-primary me-3">Explore Services</a>
+                <a href="#contact" class="btn btn-outline-light">Get in Touch</a>
+              </div>
             </div>
           </div>
         </div>
@@ -561,7 +773,7 @@
               </div>
               <div class="ud-testimonial-content">
                 <p>
-                  “The team at [Your Company] transformed our DevOps processes. Their expertise in Azure and Kubernetes is unmatched.”
+                  "The team at [Your Company] transformed our DevOps processes. Their expertise in Azure and Kubernetes is unmatched."
                 </p>
               </div>
               <div class="ud-testimonial-info">
@@ -592,7 +804,7 @@
               </div>
               <div class="ud-testimonial-content">
                 <p>
-                  “Their WordPress optimization and AWS deployment services boosted our site's performance and reliability significantly.”
+                  "Their WordPress optimization and AWS deployment services boosted our site's performance and reliability significantly."
                 </p>
               </div>
               <div class="ud-testimonial-info">
@@ -623,7 +835,7 @@
               </div>
               <div class="ud-testimonial-content">
                 <p>
-                  “Excellent support and custom development services. Our multi-cloud environment runs seamlessly thanks to their expertise.”
+                  "Excellent support and custom development services. Our multi-cloud environment runs seamlessly thanks to their expertise."
                 </p>
               </div>
               <div class="ud-testimonial-info">
@@ -660,7 +872,7 @@
               <div class="ud-contact-title">
                 <span>CONTACT US</span>
                 <h2>
-                  Let’s talk about <br />
+                  Let's talk about <br />
                   Love to hear from you!
                 </h2>
               </div>
@@ -738,6 +950,53 @@
       </div>
     </section>
     <!-- ====== Contact End ====== -->
+
+    <!-- ====== Solar System Start ====== -->
+    <section id="solar-system" class="solar-system-hero">
+      <div class="solar-system-container">
+        <div class="sun pulse-animation">
+          <img src="assets/images/logo/logo.svg" alt="Logo" class="logo-sun" />
+          <div class="sun-glow"></div>
+        </div>
+        <div class="orbit orbit-1">
+          <div class="planet planet-1 hover-effect">
+            <div class="planet-content">
+              <i class="lni lni-shopify"></i>
+              <span>E-commerce</span>
+            </div>
+            <div class="planet-trail"></div>
+          </div>
+        </div>
+        <div class="orbit orbit-2">
+          <div class="planet planet-2 hover-effect">
+            <div class="planet-content">
+              <i class="lni lni-consulting"></i>
+              <span>Consulting</span>
+            </div>
+            <div class="planet-trail"></div>
+          </div>
+        </div>
+        <div class="orbit orbit-3">
+          <div class="planet planet-3 hover-effect">
+            <div class="planet-content">
+              <i class="lni lni-customer"></i>
+              <span>Customer</span>
+            </div>
+            <div class="planet-trail"></div>
+          </div>
+        </div>
+        <div class="orbit orbit-4">
+          <div class="planet planet-4 hover-effect">
+            <div class="planet-content">
+              <i class="lni lni-support"></i>
+              <span>Support</span>
+            </div>
+            <div class="planet-trail"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Solar System End ====== -->
 
     <!-- ====== Footer Start ====== -->
     <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
@@ -832,16 +1091,14 @@
                   <li>
                     <a
                             href="https://royalhairsupply.co.za/"
-                            rel="nofollow noopner"
-                            target="_blank"
+                            rel="noopener noreferrer" target="_blank"
                     >Royal Hair Supply
                     </a>
                   </li>
                   <li>
                     <a
                             href="https://sanbytez.africa/"
-                            rel="nofollow noopner"
-                            target="_blank"
+                            rel="noopener noreferrer" target="_blank"
                     >SanBytez Africa
                     </a>
                   </li>
@@ -856,8 +1113,7 @@
                   <li>
                     <a
                             href="https://magento.com/"
-                            rel="nofollow noopner"
-                            target="_blank"
+                            rel="noopener noreferrer" target="_blank"
                     >
                       <img
                               src="assets/images/magento.svg"
@@ -868,8 +1124,7 @@
                   <li>
                     <a
                             href="https://shopify.com/"
-                            rel="nofollow noopner"
-                            target="_blank"
+                            rel="noopener noreferrer" target="_blank"
                     >
                       <img
                               src="assets/images/shopify.svg"
@@ -880,8 +1135,7 @@
                   <li>
                     <a
                             href="https://woocommerce.com/"
-                            rel="nofollow noopner"
-                            target="_blank"
+                            rel="noopener noreferrer" target="_blank"
                     >
                       <img
                               src="assets/images/woocommerce.svg"
@@ -892,8 +1146,7 @@
                   <li>
                     <a
                             href="https://opencart.com/"
-                            rel="nofollow noopner"
-                            target="_blank"
+                            rel="noopener noreferrer" target="_blank"
                     >
                       <img
                               src="assets/images/opencart.svg"
@@ -904,8 +1157,7 @@
                   <li>
                     <a
                             href="https://prestashop.com/"
-                            rel="nofollow noopner"
-                            target="_blank"
+                            rel="noopener noreferrer" target="_blank"
                     >
                       <img
                               src="assets/images/prestashop.svg"
@@ -947,18 +1199,41 @@
 
 
     <!-- ====== Back To Top Start ====== -->
-    <a href="javascript:void(0)" class="back-to-top">
+    <button class="back-to-top" aria-label="Back to top">
       <i class="lni lni-chevron-up"> </i>
-    </a>
+    </button>
     <!-- ====== Back To Top End ====== -->
 
     <!-- ====== All Javascript Files ====== -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wow.js@1.1.2/dist/wow.min.js"></script>
     <script src="assets/js/main.js"></script>
+    
+    <!-- Modern features -->
+    <script type="module">
+      // Register service worker for PWA
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => console.log('ServiceWorker registered'))
+          .catch(err => console.error('ServiceWorker registration failed:', err));
+      }
+      
+      // Initialize intersection observer for lazy loading
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+            observer.unobserve(entry.target);
+          }
+        });
+      });
+      
+      document.querySelectorAll('.ud-single-feature, .ud-about-content, .ud-single-pricing').forEach((el) => observer.observe(el));
+    </script>
     <script>
       // ==== for menu scroll
       const pageLink = document.querySelectorAll(".ud-menu-scroll");
+      const header = document.querySelector(".ud-header");
 
       pageLink.forEach((elem) => {
         elem.addEventListener("click", (e) => {
@@ -968,6 +1243,15 @@
             offsetTop: 1 - 60,
           });
         });
+      });
+
+      // Header scroll effect
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
       });
 
       // section menu active
@@ -982,14 +1266,14 @@
           const currLink = sections[i];
           const val = currLink.getAttribute("href");
           const refElement = document.querySelector(val);
+          if (!refElement) continue;
+          
           const scrollTopMinus = scrollPos + 73;
           if (
             refElement.offsetTop <= scrollTopMinus &&
             refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
           ) {
-            document
-              .querySelector(".ud-menu-scroll")
-              .classList.remove("active");
+            document.querySelector(".ud-menu-scroll.active")?.classList.remove("active");
             currLink.classList.add("active");
           } else {
             currLink.classList.remove("active");
@@ -999,5 +1283,6 @@
 
       window.document.addEventListener("scroll", onScroll);
     </script>
+    <script src="assets/js/solar-system.js"></script>
   </body>
 </html>
