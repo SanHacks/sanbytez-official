@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Handle overlay and reveal animation
+    setTimeout(() => {
+        const overlay = document.querySelector('.solar-system-overlay');
+        const solarSystem = document.querySelector('.solar-system');
+        
+        if (overlay && solarSystem) {
+            overlay.classList.add('fade-out');
+            solarSystem.classList.add('visible');
+        }
+    }, 1500);
+
     // Initialize planet positions
     const planets = document.querySelectorAll('.planet');
     planets.forEach((planet, index) => {

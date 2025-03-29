@@ -78,7 +78,7 @@
       }
       
       .ud-header {
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: rgba(13, 18, 30, 0.95);
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -89,9 +89,21 @@
         transition: all 0.3s ease;
       }
 
+      .ud-header .nav-link,
+      .ud-header .navbar-nav .nav-link {
+        color: rgba(255, 255, 255, 0.9) !important;
+        transition: color 0.3s ease;
+      }
+
+      .ud-header.scrolled .nav-link,
+      .ud-header.scrolled .navbar-nav .nav-link {
+        color: var(--text-color) !important;
+      }
+
       .ud-header.scrolled {
         height: 70px;
         background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       }
       
       .navbar {
@@ -177,6 +189,40 @@
         background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
       }
 
+      .hero-text-container {
+        position: relative;
+        z-index: 10;
+        background: rgba(13, 18, 30, 0.85);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.5s ease-in-out;
+      }
+
+      .hero-text-container.fade-out {
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+      }
+
+      .hero-text-container h1,
+      .hero-text-container p {
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        margin: 0;
+      }
+
+      .hero-text-container p {
+        margin-top: 1rem;
+        opacity: 0.9;
+      }
+
       .hero-content {
         position: relative;
         z-index: 2;
@@ -231,10 +277,180 @@
         width: 100%;
         height: 100%;
         border: none;
+        z-index: 1;
+        opacity: 0.85;
+        transition: opacity 0.5s ease;
+      }
+
+      .solar-system-iframe:hover {
+        opacity: 1;
+      }
+
+      .solar-system-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        transition: opacity 0.5s ease;
+      }
+
+      .solar-system-overlay.hidden {
+        opacity: 0;
         pointer-events: none;
-        opacity: 0.4;
-        mix-blend-mode: screen;
-        z-index: 0;
+      }
+
+      .solar-system-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .reveal-iframe-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: white;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+      }
+
+      .reveal-iframe-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(-50%) translateY(-2px);
+      }
+
+      .solar-system {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .sun, .planet {
+        position: absolute;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .sun {
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle at 30% 30%, #fbbf24, #ea580c);
+        border-radius: 50%;
+        box-shadow: 0 0 60px rgba(251, 191, 36, 0.4);
+      }
+
+      .planet {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transform-origin: center center;
+      }
+
+      .mercury {
+        background: radial-gradient(circle at 30% 30%, #94a3b8, #475569);
+        box-shadow: 0 0 20px rgba(148, 163, 184, 0.4);
+      }
+
+      .venus {
+        background: radial-gradient(circle at 30% 30%, #fde047, #ca8a04);
+        box-shadow: 0 0 20px rgba(253, 224, 71, 0.4);
+      }
+
+      .earth {
+        background: radial-gradient(circle at 30% 30%, #60a5fa, #2563eb);
+        box-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
+      }
+
+      .mars {
+        background: radial-gradient(circle at 30% 30%, #f87171, #dc2626);
+        box-shadow: 0 0 20px rgba(248, 113, 113, 0.4);
+      }
+
+      .service-label {
+        position: absolute;
+        bottom: -25px;
+        font-size: 0.75rem;
+        color: white;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .sun:hover, .planet:hover {
+        transform: scale(1.2);
+      }
+
+      .sun:hover .service-label,
+      .planet:hover .service-label {
+        opacity: 1;
+      }
+
+      .modal-content {
+        background: rgba(255, 255, 255, 0.95);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: none;
+        border-radius: 16px;
+      }
+
+      .modal-header {
+        padding: 1.5rem;
+      }
+
+      .modal-body {
+        padding: 1.5rem;
+      }
+
+      .service-content {
+        display: none;
+      }
+
+      .service-content.active {
+        display: block;
+      }
+
+      .service-content h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .service-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .service-content li {
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .service-content li:before {
+        content: '•';
+        color: var(--primary-color);
+        font-weight: bold;
+        margin-right: 0.5rem;
       }
 
       .btn {
@@ -285,6 +501,156 @@
         }
       }
     </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize modals
+        const serviceModal = new bootstrap.Modal(document.getElementById('serviceModal'));
+        const offerModal = new bootstrap.Modal(document.getElementById('offerModal'));
+        const modalTitle = document.querySelector('.modal-title');
+        const offerModalTitle = document.querySelector('#offerModal .modal-title');
+        const serviceContents = document.querySelectorAll('.service-content');
+        const iframe = document.querySelector('.solar-system-iframe');
+        const heroText = document.querySelector('.hero-text-container');
+        const heroSection = document.querySelector('.solar-system-hero');
+        const overlay = document.querySelector('.solar-system-overlay');
+
+
+        let overlayTimeout;
+        let mouseInSection = false;
+
+        function revealContent() {
+            overlay.classList.add('fade-out');
+            heroText.classList.add('fade-out');
+        }
+
+        function hideContent() {
+            overlay.classList.remove('fade-out');
+            heroText.classList.remove('fade-out');
+        }
+
+        // Initial reveal after 700ms
+        setTimeout(() => {
+            if (!mouseInSection) {
+                revealContent();
+            }
+        }, 700);
+
+        // Handle mouse enter
+        heroSection.addEventListener('mouseenter', () => {
+            mouseInSection = true;
+            clearTimeout(overlayTimeout);
+            overlayTimeout = setTimeout(() => {
+                revealContent();
+            }, 700);
+        });
+
+        // Handle mouse leave
+        heroSection.addEventListener('mouseleave', () => {
+            mouseInSection = false;
+            clearTimeout(overlayTimeout);
+            hideContent();
+        });
+
+        // Handle click to reveal
+        overlay.addEventListener('click', () => {
+            revealContent();
+            // Auto-hide after 3 seconds if mouse isn't in section
+            setTimeout(() => {
+                if (!mouseInSection) {
+                    hideContent();
+                }
+            }, 3000);
+        });
+
+        // Add hover effect for dynamic reveal
+        let lastMoveTime = Date.now();
+        heroSection.addEventListener('mousemove', () => {
+            const currentTime = Date.now();
+            if (currentTime - lastMoveTime > 300) { // Faster throttle
+                lastMoveTime = currentTime;
+                clearTimeout(overlayTimeout);
+                overlayTimeout = setTimeout(() => {
+                    if (mouseInSection) {
+                        revealContent();
+                    }
+                }, 700);
+            }
+        });
+
+        // Make iframe interactive immediately
+        iframe.addEventListener('load', () => {
+          iframe.contentWindow.document.body.classList.add('interactive');
+        });
+
+        // Fade out welcome text after delay
+        setTimeout(() => {
+          heroText.classList.add('fade-out');
+        }, 2500);
+
+
+
+        // Position planets
+        const planets = document.querySelectorAll('.planet');
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        const radius = Math.min(window.innerWidth, window.innerHeight) * 0.25;
+
+        planets.forEach((planet, index) => {
+          const angle = (index * (2 * Math.PI / planets.length));
+          const x = centerX + radius * Math.cos(angle) - planet.offsetWidth / 2;
+          const y = centerY + radius * Math.sin(angle) - planet.offsetHeight / 2;
+          planet.style.left = `${x}px`;
+          planet.style.top = `${y}px`;
+        });
+
+        // Handle offer modal clicks
+        document.querySelectorAll('[data-offer]').forEach(button => {
+            button.addEventListener('click', function() {
+                const offer = this.dataset.offer;
+                const content = document.querySelector(`.offer-content[data-offer="${offer}"]`);
+                if (content) {
+                    offerModalTitle.textContent = content.querySelector('h3').textContent;
+                    document.querySelectorAll('.offer-content').forEach(c => c.style.display = 'none');
+                    content.style.display = 'block';
+                    offerModal.show();
+                }
+            });
+        });
+
+        // Handle service clicks
+        document.querySelectorAll('.sun, .planet').forEach(element => {
+          element.addEventListener('click', function() {
+            const service = this.dataset.service;
+            modalTitle.textContent = this.title;
+
+            serviceContents.forEach(content => {
+              if (content.dataset.service === service) {
+                content.classList.add('active');
+              } else {
+                content.classList.remove('active');
+              }
+            });
+
+            serviceModal.show();
+          });
+        });
+
+        // Update positions on resize
+        window.addEventListener('resize', () => {
+          const centerX = window.innerWidth / 2;
+          const centerY = window.innerHeight / 2;
+          const radius = Math.min(window.innerWidth, window.innerHeight) * 0.25;
+
+          planets.forEach((planet, index) => {
+            const angle = (index * (2 * Math.PI / planets.length));
+            const x = centerX + radius * Math.cos(angle) - planet.offsetWidth / 2;
+            const y = centerY + radius * Math.sin(angle) - planet.offsetHeight / 2;
+            planet.style.left = `${x}px`;
+            planet.style.top = `${y}px`;
+          });
+        });
+      });
+    </script>
   </head>
   <body>
     <!-- ====== Header Start ====== -->
@@ -372,8 +738,9 @@
     <!-- ====== Hero Start ====== -->
     <section id="home" class="solar-system-hero">
       <div class="hero-backdrop"></div>
+      <div class="solar-system-overlay"></div>
       <iframe src="systemiframe.html" class="solar-system-iframe" title="Interactive Services Display"></iframe>
-      <div class="container position-relative">
+      <div class="container position-relative hero-text-container">
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="hero-content text-center">
@@ -388,6 +755,70 @@
         </div>
       </div>
     </section>
+
+    <!-- Service Modals -->
+    <div class="modal fade" id="serviceModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="service-content core-service" data-service="core">
+              <h3>Core Services</h3>
+              <p>Our foundational services include:</p>
+              <ul>
+                <li>Custom Software Development</li>
+                <li>System Integration</li>
+                <li>Technical Consulting</li>
+                <li>Digital Transformation</li>
+              </ul>
+            </div>
+            <div class="service-content web-service" data-service="web">
+              <h3>Web Development</h3>
+              <p>Modern web solutions including:</p>
+              <ul>
+                <li>Responsive Web Applications</li>
+                <li>Progressive Web Apps (PWA)</li>
+                <li>E-commerce Solutions</li>
+                <li>Content Management Systems</li>
+              </ul>
+            </div>
+            <div class="service-content mobile-service" data-service="mobile">
+              <h3>Mobile Development</h3>
+              <p>Cross-platform mobile solutions:</p>
+              <ul>
+                <li>Native iOS & Android Apps</li>
+                <li>Cross-platform Development</li>
+                <li>Mobile App Design</li>
+                <li>App Store Optimization</li>
+              </ul>
+            </div>
+            <div class="service-content cloud-service" data-service="cloud">
+              <h3>Cloud Solutions</h3>
+              <p>Enterprise cloud services:</p>
+              <ul>
+                <li>Cloud Migration</li>
+                <li>DevOps & CI/CD</li>
+                <li>Serverless Architecture</li>
+                <li>Cloud Security</li>
+              </ul>
+            </div>
+            <div class="service-content ai-service" data-service="ai">
+              <h3>AI & Machine Learning</h3>
+              <p>Cutting-edge AI solutions:</p>
+              <ul>
+                <li>Predictive Analytics</li>
+                <li>Natural Language Processing</li>
+                <li>Computer Vision</li>
+                <li>Machine Learning Models</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- ====== Hero End ====== -->
 
     <!-- ====== Features Start ====== -->
@@ -416,9 +847,9 @@
                 <p class="ud-feature-desc">
                   Expert Magento development services to build robust e-commerce solutions.
                 </p>
-                <a href="javascript:void(0)" class="ud-feature-link">
+                <button class="ud-feature-link btn btn-link" data-bs-toggle="modal" data-bs-target="#offerModal" data-offer="magento">
                   Learn More
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -773,7 +1204,7 @@
               </div>
               <div class="ud-testimonial-content">
                 <p>
-                  "The team at [Your Company] transformed our DevOps processes. Their expertise in Azure and Kubernetes is unmatched."
+                  "The team at SanBytez transformed our DevOps processes. Their expertise in Azure and Kubernetes is unmatched."
                 </p>
               </div>
               <div class="ud-testimonial-info">
@@ -1198,6 +1629,33 @@
     <!-- ====== Footer End ====== -->
 
 
+    <!-- Offer Modal -->
+    <div class="modal fade" id="offerModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="offer-content magento-offer" data-offer="magento">
+              <h3>Magento Development</h3>
+              <p>Our comprehensive Magento development services include:</p>
+              <ul>
+                <li>Custom Magento Theme Development</li>
+                <li>Extension Development & Integration</li>
+                <li>Performance Optimization</li>
+                <li>Security Enhancements</li>
+                <li>Payment Gateway Integration</li>
+                <li>Migration Services</li>
+              </ul>
+              <p>We help businesses create powerful and scalable e-commerce solutions using Magento's robust platform.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ====== Back To Top Start ====== -->
     <button class="back-to-top" aria-label="Back to top">
       <i class="lni lni-chevron-up"> </i>
@@ -1284,5 +1742,16 @@
       window.document.addEventListener("scroll", onScroll);
     </script>
     <script src="assets/js/solar-system.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+          const overlay = document.querySelector('.solar-system-overlay');
+          const solarSystem = document.querySelector('.solar-system');
+          
+          overlay.classList.add('fade-out');
+          solarSystem.classList.add('visible');
+        }, 1500);
+      });
+    </script>
   </body>
 </html>
