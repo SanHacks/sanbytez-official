@@ -37,3 +37,7 @@ next-env.d.ts
 
 
 .env
+
+
+#Ignore cursor AI rules
+.cursor/rules/codacy.mdc

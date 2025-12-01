@@ -1,23 +1,36 @@
-<!-- =========
-
-	Template Name: Play
-	Author: UIdeck
-	Author URI: https://uideck.com/
-	Support: https://uideck.com/support/
-	Version: 1.1
-
-========== -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SanBytez - Innovative Software Solutions</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#2563EB">
+    <title>SanBytez - Innovative Software Solutions for the Modern Web</title>
+    <meta name="description" content="Cutting-edge software solutions and web development services. We build fast, secure, and scalable applications for businesses of all sizes.">
+    
     <!-- Primary Meta Tags -->
-    <meta name="title" content="SanBytez - Innovative Software Solutions">
+    <meta name="title" content="SanBytez - Modern Software Solutions & Web Development">
+    <meta name="description" content="Transform your digital presence with our innovative software solutions. Expert web development, mobile apps, and cloud services.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanbytez.com/">
+    <meta property="og:title" content="SanBytez - Modern Software Solutions & Web Development">
+    <meta property="og:description" content="Transform your digital presence with our innovative software solutions. Expert web development, mobile apps, and cloud services.">
+    <meta property="og:image" content="https://sanbytez.com/assets/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sanbytez.com/">
+    <meta property="twitter:title" content="SanBytez - Modern Software Solutions & Web Development">
+    <meta property="twitter:description" content="Transform your digital presence with our innovative software solutions. Expert web development, mobile apps, and cloud services.">
+    <meta property="twitter:image" content="https://sanbytez.com/assets/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <meta name="description" content="Leading software development company specializing in AI-powered solutions, cloud services, and enterprise software development. Transform your business with our cutting-edge technology.">
     <meta name="theme-color" content="#2563eb">
     <meta name="color-scheme" content="light dark">
@@ -30,897 +43,226 @@
 <!--<meta property="og:image" content="https://uideck.com/wp-content/uploads/2021/09/play-meta-bs.jpg">-->
 
 <!-- Twitter -->
-<!--<meta property="twitter:card" content="summary_large_image">-->
-<!--<meta property="twitter:url" content="https://uideck.com/play/">-->
-<!--<meta property="twitter:title" content="Play - Free Open Source HTML Bootstrap Template by UIdeck">-->
-<!--<meta property="twitter:description" content="Play - Free Open Source HTML Bootstrap Template by UIdeck Team">-->
-<!--<meta property="twitter:image" content="https://uideck.com/wp-content/uploads/2021/09/play-meta-bs.jpg">-->
-
-    <!--====== Favicon Icon ======-->
-    <link
-      rel="shortcut icon"
-      href="assets/images/favicon.svg"
-      type="image/svg"
-    />
-
-    <!-- ===== All CSS files ===== -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
-    <link rel="stylesheet" href="assets/css/ud-styles.css" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1e40af',
+              secondary: '#1e3a8a',
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+    
+    <!-- Line Icons -->
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/cookie-consent.css" />
     
     <!-- Preload key resources -->
     <link rel="preload" href="assets/images/logo/logo.svg" as="image">
-    <link rel="preload" href="https://cdn.lineicons.com/4.0/lineicons.css" as="style">
-    <link rel="preload" href="assets/css/solar-system.css" as="style">
     <script type="module" src="sw.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- PWA support -->
     <link rel="manifest" href="manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="stylesheet" href="assets/css/solar-system.css" />
     <link rel="stylesheet" href="assets/css/cookie-consent.css" />
-    <style>
-      /* Modern color scheme */
-      :root {
-        --animate-duration: 0.5s;
-        --animate-delay: 0.1s;
-        --primary-color: #2563eb;
-        --secondary-color: #1e40af;
-        --text-color: #1f2937;
-        --bg-color: #f8fafc;
-        --header-height: 80px;
-        --gradient-start: #2563eb;
-        --gradient-end: #1e40af;
-      }
-      
-      body {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-      }
-      
-      .ud-header {
-        background-color: rgba(13, 18, 30, 0.95);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        height: var(--header-height);
-        position: fixed;
-        width: 100%;
-        z-index: 999;
-        transition: all 0.3s ease;
-      }
-
-      .ud-header .nav-link,
-      .ud-header .navbar-nav .nav-link {
-        color: rgba(255, 255, 255, 0.9) !important;
-        transition: color 0.3s ease;
-      }
-
-      .ud-header.scrolled .nav-link,
-      .ud-header.scrolled .navbar-nav .nav-link {
-        color: var(--text-color) !important;
-      }
-
-      .ud-header.scrolled {
-        height: 70px;
-        background-color: rgba(255, 255, 255, 0.98);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      }
-      
-      .navbar {
-        height: 100%;
-        padding: 0 1.5rem;
-      }
-      
-      .navbar-brand {
-        display: flex;
-        align-items: center;
-      }
-
-      .navbar-brand img {
-        height: 45px;
-        transition: height 0.3s ease;
-      }
-
-      .scrolled .navbar-brand img {
-        height: 35px;
-      }
-      
-      .navbar-nav {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
-
-      .navbar-nav .nav-item {
-        margin: 0;
-      }
-      
-      .ud-menu-scroll {
-        color: var(--text-color);
-        font-weight: 500;
-        padding: 0.75rem 1.25rem;
-        transition: all 0.3s ease;
-        position: relative;
-        text-decoration: none;
-        font-size: 1rem;
-        letter-spacing: 0.5px;
-      }
-      
-      .ud-menu-scroll:hover,
-      .ud-menu-scroll.active {
-        color: var(--primary-color);
-      }
-      
-      .ud-menu-scroll::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 50%;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
-        transition: all 0.3s ease;
-        transform: translateX(-50%);
-      }
-      
-      .ud-menu-scroll:hover::after,
-      .ud-menu-scroll.active::after {
-        width: 100%;
-      }
-
-      /* Hero section with iframe */
-      .solar-system-hero {
-        min-height: 100vh;
-        padding-top: var(--header-height);
-        display: flex;
-        align-items: center;
-        background: linear-gradient(135deg, #1e293b, #0f172a);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .solar-system-hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
-      }
-
-      .hero-text-container {
-        position: relative;
-        z-index: 10;
-        background: rgba(13, 18, 30, 0.85);
-        -webkit-backdrop-filter: blur(8px);
-        backdrop-filter: blur(8px);
-        border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 2rem;
-        max-width: 800px;
-        margin: 0 auto;
-        opacity: 1;
-        transform: translateY(0);
-        transition: all 0.5s ease-in-out;
-      }
-
-      .hero-text-container.fade-out {
-        opacity: 0;
-        transform: translateY(-20px);
-        pointer-events: none;
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        color: white;
-        text-align: center;
-        padding: 4rem 1rem;
-      }
-
-      .hero-backdrop {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
-        z-index: 1;
-      }
-
-      .hero-content h1 {
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        font-weight: 800;
-        margin-bottom: 1.5rem;
-        background: linear-gradient(to right, #60a5fa, #3b82f6);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        line-height: 1.2;
-        letter-spacing: -0.02em;
-      }
-
-      .hero-content p {
-        font-size: clamp(1.1rem, 2vw, 1.5rem);
-        margin-bottom: 3rem;
-        opacity: 0.9;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-
-      .solar-system-iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-        z-index: 1;
-        opacity: 0.85;
-        transition: opacity 0.5s ease;
-      }
-
-      .solar-system-iframe:hover {
-        opacity: 1;
-      }
-
-      .solar-system-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-        transition: opacity 0.5s ease;
-      }
-
-      .solar-system-overlay.hidden {
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .solar-system-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      }
-
-      .reveal-iframe-btn {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 10px 20px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        color: white;
-        font-size: 0.875rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        -webkit-backdrop-filter: blur(5px);
-        backdrop-filter: blur(5px);
-      }
-
-      .reveal-iframe-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateX(-50%) translateY(-2px);
-      }
-
-      .solar-system {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .sun, .planet {
-        position: absolute;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .sun {
-        width: 100px;
-        height: 100px;
-        background: radial-gradient(circle at 30% 30%, #fbbf24, #ea580c);
-        border-radius: 50%;
-        box-shadow: 0 0 60px rgba(251, 191, 36, 0.4);
-      }
-
-      .planet {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        transform-origin: center center;
-      }
-
-      .mercury {
-        background: radial-gradient(circle at 30% 30%, #94a3b8, #475569);
-        box-shadow: 0 0 20px rgba(148, 163, 184, 0.4);
-      }
-
-      .venus {
-        background: radial-gradient(circle at 30% 30%, #fde047, #ca8a04);
-        box-shadow: 0 0 20px rgba(253, 224, 71, 0.4);
-      }
-
-      .earth {
-        background: radial-gradient(circle at 30% 30%, #60a5fa, #2563eb);
-        box-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
-      }
-
-      .mars {
-        background: radial-gradient(circle at 30% 30%, #f87171, #dc2626);
-        box-shadow: 0 0 20px rgba(248, 113, 113, 0.4);
-      }
-
-      .service-label {
-        position: absolute;
-        bottom: -25px;
-        font-size: 0.75rem;
-        color: white;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-        white-space: nowrap;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .sun:hover, .planet:hover {
-        transform: scale(1.2);
-      }
-
-      .sun:hover .service-label,
-      .planet:hover .service-label {
-        opacity: 1;
-      }
-
-      .modal-content {
-        background: rgba(255, 255, 255, 0.95);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        border: none;
-        border-radius: 16px;
-      }
-
-      .modal-header {
-        padding: 1.5rem;
-      }
-
-      .modal-body {
-        padding: 1.5rem;
-      }
-
-      .service-content {
-        display: none;
-      }
-
-      .service-content.active {
-        display: block;
-      }
-
-      .service-content h3 {
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-      }
-
-      .service-content ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .service-content li {
-        padding: 0.5rem 0;
-        display: flex;
-        align-items: center;
-      }
-
-      .service-content li:before {
-        content: '•';
-        color: var(--primary-color);
-        font-weight: bold;
-        margin-right: 0.5rem;
-      }
-
-      .btn {
-        padding: 0.875rem 2rem;
-        font-weight: 500;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.875rem;
-      }
-
-      .btn-primary {
-        background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
-        border: none;
-        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 8px rgba(37, 99, 235, 0.3);
-      }
-
-      .btn-outline-light {
-        border: 2px solid rgba(255, 255, 255, 0.8);
-        background: transparent;
-        color: white;
-      }
-
-      .btn-outline-light:hover {
-        background: rgba(255, 255, 255, 0.1);
-        transform: translateY(-2px);
-      }
-
-      @media (max-width: 768px) {
-        .hero-content {
-          padding: 3rem 1rem;
-        }
-
-        .hero-buttons {
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .btn {
-          width: 100%;
-          max-width: 300px;
-        }
-      }
-    </style>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Initialize modals
-        const serviceModal = new bootstrap.Modal(document.getElementById('serviceModal'));
-        const offerModal = new bootstrap.Modal(document.getElementById('offerModal'));
-        const featuresModal = new bootstrap.Modal(document.getElementById('featuresModal'));
-        const howItWorksModal = new bootstrap.Modal(document.getElementById('howItWorksModal'));
-        const privacyModal = new bootstrap.Modal(document.getElementById('privacyModal'));
-        const termsModal = new bootstrap.Modal(document.getElementById('termsModal'));
-        const refundModal = new bootstrap.Modal(document.getElementById('refundModal'));
-        
-        const modalTitle = document.querySelector('.modal-title');
-        const offerModalTitle = document.querySelector('#offerModal .modal-title');
-        const serviceContents = document.querySelectorAll('.service-content');
-        const iframe = document.querySelector('.solar-system-iframe');
-        const heroText = document.querySelector('.hero-text-container');
-        const heroSection = document.querySelector('.solar-system-hero');
-        const overlay = document.querySelector('.solar-system-overlay');
-
-        let overlayTimeout;
-        let mouseInSection = false;
-
-        function revealContent() {
-            overlay.classList.add('fade-out');
-            heroText.classList.add('fade-out');
-        }
-
-        function hideContent() {
-            overlay.classList.remove('fade-out');
-            heroText.classList.remove('fade-out');
-        }
-
-        // Initial reveal after 700ms
-        setTimeout(() => {
-            if (!mouseInSection) {
-                revealContent();
-            }
-        }, 700);
-
-        // Handle mouse enter
-        heroSection.addEventListener('mouseenter', () => {
-            mouseInSection = true;
-            clearTimeout(overlayTimeout);
-            overlayTimeout = setTimeout(() => {
-                revealContent();
-            }, 700);
-        });
-
-        // Handle mouse leave
-        heroSection.addEventListener('mouseleave', () => {
-            mouseInSection = false;
-            clearTimeout(overlayTimeout);
-            hideContent();
-        });
-
-        // Handle click to reveal
-        overlay.addEventListener('click', () => {
-            revealContent();
-            // Auto-hide after 3 seconds if mouse isn't in section
-            setTimeout(() => {
-                if (!mouseInSection) {
-                    hideContent();
-                }
-            }, 3000);
-        });
-
-        // Add hover effect for dynamic reveal
-        let lastMoveTime = Date.now();
-        heroSection.addEventListener('mousemove', () => {
-            const currentTime = Date.now();
-            if (currentTime - lastMoveTime > 300) { // Faster throttle
-                lastMoveTime = currentTime;
-                clearTimeout(overlayTimeout);
-                overlayTimeout = setTimeout(() => {
-                    if (mouseInSection) {
-                        revealContent();
-                    }
-                }, 700);
-            }
-        });
-
-        // Make iframe interactive immediately
-        iframe.addEventListener('load', () => {
-          iframe.contentWindow.document.body.classList.add('interactive');
-        });
-
-        // Fade out welcome text after delay
-        setTimeout(() => {
-          heroText.classList.add('fade-out');
-        }, 2500);
-
-
-
-        // Position planets
-        const planets = document.querySelectorAll('.planet');
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
-        const radius = Math.min(window.innerWidth, window.innerHeight) * 0.25;
-
-        planets.forEach((planet, index) => {
-          const angle = (index * (2 * Math.PI / planets.length));
-          const x = centerX + radius * Math.cos(angle) - planet.offsetWidth / 2;
-          const y = centerY + radius * Math.sin(angle) - planet.offsetHeight / 2;
-          planet.style.left = `${x}px`;
-          planet.style.top = `${y}px`;
-        });
-
-        // Handle offer modal clicks
-        document.querySelectorAll('[data-offer]').forEach(button => {
-            button.addEventListener('click', function() {
-                const offer = this.dataset.offer;
-                const content = document.querySelector(`.offer-content[data-offer="${offer}"]`);
-                if (content) {
-                    offerModalTitle.textContent = content.querySelector('h3').textContent;
-                    document.querySelectorAll('.offer-content').forEach(c => c.style.display = 'none');
-                    content.style.display = 'block';
-                    offerModal.show();
-                }
-            });
-        });
-
-        // Handle service clicks
-        document.querySelectorAll('.sun, .planet').forEach(element => {
-          element.addEventListener('click', function() {
-            const service = this.dataset.service;
-            modalTitle.textContent = this.title;
-
-            serviceContents.forEach(content => {
-              if (content.dataset.service === service) {
-                content.classList.add('active');
-              } else {
-                content.classList.remove('active');
-              }
-            });
-
-            serviceModal.show();
-          });
-        });
-
-        // Update positions on resize
-        window.addEventListener('resize', () => {
-          const centerX = window.innerWidth / 2;
-          const centerY = window.innerHeight / 2;
-          const radius = Math.min(window.innerWidth, window.innerHeight) * 0.25;
-
-          planets.forEach((planet, index) => {
-            const angle = (index * (2 * Math.PI / planets.length));
-            const x = centerX + radius * Math.cos(angle) - planet.offsetWidth / 2;
-            const y = centerY + radius * Math.sin(angle) - planet.offsetHeight / 2;
-            planet.style.left = `${x}px`;
-            planet.style.top = `${y}px`;
-          });
-        });
-      });
-    </script>
   </head>
   <body>
     <!-- ====== Header Start ====== -->
-    <header class="ud-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <nav class="navbar navbar-expand-lg">
-              <a class="navbar-brand" href="index.html">
-                <img src="assets/images/logo/logo.svg" alt="Logo" />
-              </a>
-              <button class="navbar-toggler">
-                <span class="toggler-icon"> </span>
-                <span class="toggler-icon"> </span>
-                <span class="toggler-icon"> </span>
-              </button>
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-100 transition-all duration-300">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <a href="index.html" class="flex items-center">
+            <img src="assets/images/logo/logo.svg" alt="SanBytez Logo" class="h-10 lg:h-12 transition-all duration-300" />
+          </a>
 
-              <div class="navbar-collapse">
-                <ul id="nav" class="navbar-nav mx-auto">
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="#home">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="#services">Services</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="#about">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="#pricing">Pricing</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="#contact">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="#solar-system">Solutions</a>
-                  </li>
-<!--                  <li class="nav-item nav-item-has-children">-->
-<!--                    <a href="javascript:void(0)"> Pages </a>-->
-<!--                    <ul class="ud-submenu">-->
-<!--                      <li class="ud-submenu-item">-->
-<!--                        <a href="about.html" class="ud-submenu-link">-->
-<!--                          About Page-->
-<!--                        </a>-->
-<!--                      </li>-->
-<!--                      <li class="ud-submenu-item">-->
-<!--                        <a href="pricing.html" class="ud-submenu-link">-->
-<!--                          Pricing Page-->
-<!--                        </a>-->
-<!--                      </li>-->
-<!--                      <li class="ud-submenu-item">-->
-<!--                        <a href="contact.html" class="ud-submenu-link">-->
-<!--                          Contact Page-->
-<!--                        </a>-->
-<!--                      </li>-->
-<!--                      <li class="ud-submenu-item">-->
-<!--                        <a href="blog.html" class="ud-submenu-link">-->
-<!--                          Blog Grid Page-->
-<!--                        </a>-->
-<!--                      </li>-->
-<!--                      <li class="ud-submenu-item">-->
-<!--                        <a href="blog-details.html" class="ud-submenu-link">-->
-<!--                          Blog Details Page-->
-<!--                        </a>-->
-<!--                      </li>-->
-<!--                      <li class="ud-submenu-item">-->
-<!--                        <a href="login.html" class="ud-submenu-link">-->
-<!--                          Sign In Page-->
-<!--                        </a>-->
-<!--                      </li>-->
-<!--                      <li class="ud-submenu-item">-->
-<!--                        <a href="404.html" class="ud-submenu-link">404 Page</a>-->
-<!--                      </li>-->
-<!--                    </ul>-->
-<!--                  </li>-->
-                </ul>
-              </div>
-            </nav>
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex items-center space-x-8">
+            <a href="#home" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              Home
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#services" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              Services
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#about" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              About
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#pricing" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              Pricing
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#contact" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              Contact
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#solutions" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              Solutions
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-gray-900 hover:bg-gray-100 transition-colors">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden pb-4">
+          <div class="flex flex-col space-y-2">
+            <a href="#home" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">Home</a>
+            <a href="#services" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">Services</a>
+            <a href="#about" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">About</a>
+            <a href="#pricing" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">Pricing</a>
+            <a href="#contact" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">Contact</a>
+            <a href="#solutions" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">Solutions</a>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
     <!-- ====== Header End ====== -->
 
     <!-- ====== Hero Start ====== -->
-    <section id="home" class="solar-system-hero">
-      <div class="hero-backdrop"></div>
-      <div class="solar-system-overlay"></div>
-      <iframe src="systemiframe.html" class="solar-system-iframe" title="Interactive Services Display"></iframe>
-      <div class="container position-relative hero-text-container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="hero-content text-center">
-              <h1 class="animate__animated animate__fadeInDown">Welcome to SanBytez</h1>
-              <p class="animate__animated animate__fadeInUp animate__delay-1s">Transforming Ideas into Digital Reality</p>
-              <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-2s">
-                <a href="#services" class="btn btn-primary me-3">Explore Services</a>
-                <a href="#contact" class="btn btn-outline-light">Get in Touch</a>
+    <section id="home" class="min-h-screen pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      <!-- Background gradient -->
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-blue-50/30 to-transparent pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Hero Content -->
+          <div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              Enterprise Software Solutions<br>
+              <span class="text-blue-900">Built for Scale</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 max-w-2xl">
+              We deliver cutting-edge technology solutions that drive business transformation. 
+              Trusted by leading enterprises for mission-critical software development, 
+              cloud infrastructure, and digital innovation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 mb-12">
+              <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+                Schedule a Consultation
+              </a>
+              <a href="#services" class="inline-flex items-center justify-center px-8 py-4 border-2 border-blue-900 text-blue-900 font-semibold rounded-lg hover:bg-blue-900 hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+                Our Services
+              </a>
+            </div>
+            <!-- Stats -->
+            <div class="flex flex-wrap gap-8 pt-8 border-t border-gray-200">
+              <div class="group hover:scale-105 transition-transform duration-300">
+                <h3 class="text-4xl font-bold text-blue-900 mb-2">500+</h3>
+                <p class="text-sm uppercase tracking-wider text-gray-600">Enterprise Clients</p>
               </div>
+              <div class="group hover:scale-105 transition-transform duration-300">
+                <h3 class="text-4xl font-bold text-blue-900 mb-2">15+</h3>
+                <p class="text-sm uppercase tracking-wider text-gray-600">Years Experience</p>
+              </div>
+              <div class="group hover:scale-105 transition-transform duration-300">
+                <h3 class="text-4xl font-bold text-blue-900 mb-2">99.9%</h3>
+                <p class="text-sm uppercase tracking-wider text-gray-600">Uptime SLA</p>
+              </div>
+            </div>
+          </div>
+          <!-- Hero Image -->
+          <div class="relative">
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-3xl transition-shadow duration-300">
+              <svg width="100%" height="100%" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="hover:scale-105 transition-transform duration-300">
+                <rect width="600" height="500" fill="#f8fafc"/>
+                <rect x="50" y="50" width="500" height="400" rx="8" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+                <rect x="80" y="80" width="200" height="30" rx="4" fill="#e5e7eb"/>
+                <rect x="80" y="130" width="150" height="20" rx="4" fill="#e5e7eb"/>
+                <rect x="80" y="160" width="180" height="20" rx="4" fill="#e5e7eb"/>
+                <rect x="80" y="200" width="440" height="200" rx="4" fill="#f3f4f6"/>
+                <circle cx="300" cy="300" r="60" fill="#2563eb" opacity="0.1"/>
+                <path d="M280 280 L300 300 L320 280" stroke="#2563eb" stroke-width="3" fill="none"/>
+                <text x="300" y="330" text-anchor="middle" fill="#6b7280" font-size="14" font-family="Inter, sans-serif">Enterprise Solutions</text>
+              </svg>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Service Modals -->
-    <div class="modal fade" id="serviceModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <h5 class="modal-title"></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="service-content core-service" data-service="core">
-              <h3>Core Services</h3>
-              <p>Our foundational services include:</p>
-              <ul>
-                <li>Custom Software Development</li>
-                <li>System Integration</li>
-                <li>Technical Consulting</li>
-                <li>Digital Transformation</li>
-              </ul>
-            </div>
-            <div class="service-content web-service" data-service="web">
-              <h3>Web Development</h3>
-              <p>Modern web solutions including:</p>
-              <ul>
-                <li>Responsive Web Applications</li>
-                <li>Progressive Web Apps (PWA)</li>
-                <li>E-commerce Solutions</li>
-                <li>Content Management Systems</li>
-              </ul>
-            </div>
-            <div class="service-content mobile-service" data-service="mobile">
-              <h3>Mobile Development</h3>
-              <p>Cross-platform mobile solutions:</p>
-              <ul>
-                <li>Native iOS & Android Apps</li>
-                <li>Cross-platform Development</li>
-                <li>Mobile App Design</li>
-                <li>App Store Optimization</li>
-              </ul>
-            </div>
-            <div class="service-content cloud-service" data-service="cloud">
-              <h3>Cloud Solutions</h3>
-              <p>Enterprise cloud services:</p>
-              <ul>
-                <li>Cloud Migration</li>
-                <li>DevOps & CI/CD</li>
-                <li>Serverless Architecture</li>
-                <li>Cloud Security</li>
-              </ul>
-            </div>
-            <div class="service-content ai-service" data-service="ai">
-              <h3>AI & Machine Learning</h3>
-              <p>Cutting-edge AI solutions:</p>
-              <ul>
-                <li>Predictive Analytics</li>
-                <li>Natural Language Processing</li>
-                <li>Computer Vision</li>
-                <li>Machine Learning Models</li>
-              </ul>
-            </div>
-          </div>
+    <!-- Service Modal -->
+    <div id="serviceModal" class="modal hidden fixed inset-0 z-50 overflow-y-auto">
+      <div class="modal-overlay fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
+      <div class="flex min-h-screen items-center justify-center p-4">
+        <div class="modal-content relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-8 transform transition-all">
+          <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" aria-label="Close">
+            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <h3 class="modal-title text-2xl font-bold text-gray-900 mb-6"></h3>
+          <div class="modal-body text-gray-700"></div>
         </div>
       </div>
     </div>
     <!-- ====== Hero End ====== -->
 
-    <!-- ====== Features Start ====== -->
-    <!-- ====== Offers Start ====== -->
-    <section id="offers" class="ud-features">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title">
-              <span>Services</span>
-              <h2>Our Technology Solutions</h2>
-              <p>
-                We deliver cutting-edge technology solutions to transform your business and drive innovation.
-              </p>
-            </div>
-          </div>
+    <!-- ====== Services Start ====== -->
+    <section id="services" class="py-16 lg:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-4">
+            Services
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Our Technology Solutions
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            We deliver cutting-edge technology solutions to transform your business and drive innovation.
+          </p>
         </div>
-        <div class="row">
-          <div class="col-xl-3 col-lg-3 col-sm-6">
-            <div class="ud-single-feature wow fadeInUp" data-wow-delay=".1s">
-              <div class="ud-feature-icon">
-                <i class="lni lni-gift"></i>
-              </div>
-              <div class="ud-feature-content">
-                <h3 class="ud-feature-title">AI-Powered Solutions</h3>
-                <p class="ud-feature-desc">
-                  Advanced AI algorithms and machine learning solutions for business optimization.
-                </p>
-                <button class="ud-feature-link btn btn-link" data-bs-toggle="modal" data-bs-target="#offerModal" data-offer="magento">
-                  Learn More
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-sm-6">
-            <div class="ud-single-feature wow fadeInUp" data-wow-delay=".15s">
-              <div class="ud-feature-icon">
-                <i class="lni lni-move"></i>
-              </div>
-              <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Responsive Web Applications</h3>
-                <p class="ud-feature-desc">
-                  Modern, scalable web solutions built with cutting-edge technologies.
-                </p>
-                <a href="javascript:void(0)" class="ud-feature-link">
-                  Learn More
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-sm-6">
-            <div class="ud-single-feature wow fadeInUp" data-wow-delay=".2s">
-              <div class="ud-feature-icon">
-                <i class="lni lni-layout"></i>
-              </div>
-              <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Cross-Platform Mobile Solutions</h3>
-                <p class="ud-feature-desc">
-                  High-performance mobile apps that work seamlessly across platforms.
-                </p>
-                <a href="javascript:void(0)" class="ud-feature-link">
-                  Learn More
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-sm-6">
-            <div class="ud-single-feature wow fadeInUp" data-wow-delay=".25s">
-              <div class="ud-feature-icon">
-                <i class="lni lni-layers"></i>
-              </div>
-              <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Advanced AI Algorithms</h3>
-                <p class="ud-feature-desc">
-                  State-of-the-art AI solutions for complex business challenges.
-                </p>
-                <a href="javascript:void(0)" class="ud-feature-link">
-                  Learn More
-                </a>
-              </div>
-            </div>
-          </div>
+        
+        <!-- Services Grid - Populated from services-data.js -->
+        <div id="services-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Services will be dynamically inserted here -->
         </div>
       </div>
     </section>
-    <!-- ====== Offers End ====== -->
+    <!-- ====== Services End ====== -->
 
     <!-- ====== About Start ====== -->
-    <section id="about" class="ud-about">
-      <div class="container">
-        <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
-          <div class="ud-about-content-wrapper">
-            <div class="ud-about-content">
-              <span class="tag">About Us</span>
-              <h2>Innovating the Future of Software Solutions</h2>
-              <p>
-                At SanBytez, we are dedicated to pioneering advanced software solutions that drive innovation and excellence. Our team of experts is committed to delivering state-of-the-art e-commerce platforms, mobile applications, and comprehensive hosting services that empower businesses to thrive in the digital age.
-              </p>
-              <p>
-                With a focus on cutting-edge technology and unparalleled service, we aim to elevate your business with bespoke solutions tailored to your unique needs. Join us on a journey to explore the limitless possibilities of tomorrow's technology.
-              </p>
-              <a href="#contact" class="ud-main-btn">Get in Touch</a>
-            </div>
+    <section id="about" class="py-16 lg:py-24 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-6">
+              About Us
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Innovating the Future of Software Solutions
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-4">
+              At SanBytez, we are dedicated to pioneering advanced software solutions that drive innovation and excellence. Our team of experts is committed to delivering state-of-the-art e-commerce platforms, mobile applications, and comprehensive hosting services that empower businesses to thrive in the digital age.
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed mb-8">
+              With a focus on cutting-edge technology and unparalleled service, we aim to elevate your business with bespoke solutions tailored to your unique needs. Join us on a journey to explore the limitless possibilities of tomorrow's technology.
+            </p>
+            <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+              Get in Touch
+            </a>
           </div>
-          <div class="ud-about-image">
-            <img src="https://images.pexels.com/photos/5632382/pexels-photo-5632382.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="e-commerce" />
+          <div class="relative">
+            <div class="rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300">
+              <img src="https://images.pexels.com/photos/5632382/pexels-photo-5632382.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="SanBytez Team" class="w-full h-auto hover:scale-105 transition-transform duration-300" />
+            </div>
           </div>
         </div>
       </div>
@@ -929,99 +271,156 @@
     <!-- ====== About End ====== -->
 
     <!-- ====== Pricing Start ====== -->
-    <!-- ====== Pricing Start ====== -->
-    <section id="pricing" class="ud-pricing">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title mx-auto text-center">
-              <span>Pricing</span>
-              <h2>Our Pricing Plans</h2>
-              <p>
-                Explore our flexible pricing options tailored to meet your business needs, from DevOps to e-commerce solutions.
-              </p>
-            </div>
-          </div>
+    <section id="pricing" class="py-16 lg:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-4">
+            Pricing
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Our Pricing Plans
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Explore our flexible pricing options tailored to meet your business needs, from DevOps to e-commerce solutions.
+          </p>
         </div>
 
-        <div class="row g-0 align-items-center justify-content-center">
-          <div class="col-lg-4 col-md-6 col-sm-10">
-            <div class="ud-single-pricing first-item wow fadeInUp" data-wow-delay=".15s">
-              <div class="ud-pricing-header">
-                <h3>STARTING FROM</h3>
-                <h4>ZAR 299.99/mo</h4>
-              </div>
-              <div class="ud-pricing-body">
-                <ul>
-                  <li>5 User</li>
-                  <li>All UI components</li>
-                  <li>Lifetime access</li>
-                  <li>Free updates</li>
-                  <li>Use on 1 (one) project</li>
-                  <li>4 Months support</li>
-                  <li>DevOps on Azure & AWS</li>
-                  <li>WordPress Deployments</li>
-                </ul>
-              </div>
-              <div class="ud-pricing-footer">
-                <a href="javascript:void(0)" class="ud-main-btn ud-border-btn">
-                  Purchase Now
-                </a>
-              </div>
+        <!-- Pricing Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Plan 1 -->
+          <div class="bg-white rounded-xl border-2 border-gray-200 p-8 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+            <div class="text-center mb-8">
+              <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-600 mb-2">STARTING FROM</h3>
+              <h4 class="text-4xl font-bold text-blue-900 mb-1">ZAR 299.99</h4>
+              <p class="text-gray-600">/month</p>
             </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                5 Users
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                All UI components
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Lifetime access
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                4 Months support
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                DevOps on Azure & AWS
+              </li>
+            </ul>
+            <a href="#contact" class="block w-full text-center px-8 py-4 border-2 border-blue-900 text-blue-900 font-semibold rounded-lg hover:bg-blue-900 hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+              Purchase Now
+            </a>
           </div>
 
-          <div class="col-lg-4 col-md-6 col-sm-10">
-            <div class="ud-single-pricing active wow fadeInUp" data-wow-delay=".1s">
-              <span class="ud-popular-tag">POPULAR</span>
-              <div class="ud-pricing-header">
-                <h3>REQUEST A QUOTE</h3>
-              </div>
-              <div class="ud-pricing-body">
-                <ul>
-                  <li>10 User</li>
-                  <li>All UI components</li>
-                  <li>Lifetime access</li>
-                  <li>Free updates</li>
-                  <li>Use on multiple projects</li>
-                  <li>6 Months support</li>
-                  <li>Kubernetes Deployment</li>
-                  <li>Advanced E-commerce Solutions</li>
-                  <li>Custom WordPress Development</li>
-                </ul>
-              </div>
-              <div class="ud-pricing-footer">
-                <a href="#contact" class="ud-main-btn ud-white-btn">
-                  Contact Us
-                </a>
-              </div>
+          <!-- Plan 2 - Popular -->
+          <div class="bg-white rounded-xl border-2 border-blue-900 p-8 relative hover:shadow-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300">
+            <span class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-6 py-1 bg-blue-900 text-white text-xs font-bold uppercase rounded-full">
+              Popular
+            </span>
+            <div class="text-center mb-8">
+              <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-600 mb-2">REQUEST A QUOTE</h3>
+              <h4 class="text-4xl font-bold text-blue-900 mb-1">Custom</h4>
+              <p class="text-gray-600">Enterprise</p>
             </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                10 Users
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Multiple projects
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                6 Months support
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Kubernetes Deployment
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Advanced E-commerce Solutions
+              </li>
+            </ul>
+            <a href="#contact" class="block w-full text-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+              Contact Us
+            </a>
           </div>
 
-          <div class="col-lg-4 col-md-6 col-sm-10">
-            <div class="ud-single-pricing last-item wow fadeInUp" data-wow-delay=".15s">
-              <div class="ud-pricing-header">
-                <h3>REQUEST A QUOTE</h3>
-              </div>
-              <div class="ud-pricing-body">
-                <ul>
-                  <li>Unlimited Users</li>
-                  <li>All UI components</li>
-                  <li>Lifetime access</li>
-                  <li>Free updates</li>
-                  <li>Use on unlimited projects</li>
-                  <li>12 Months support</li>
-                  <li>Full DevOps Integration</li>
-                  <li>Comprehensive E-commerce Solutions</li>
-                  <li>Enterprise-Level WordPress & Custom Solutions</li>
-                </ul>
-              </div>
-              <div class="ud-pricing-footer">
-                <a href="#contact" class="ud-main-btn ud-border-btn">
-                  Contact Us
-                </a>
-              </div>
+          <!-- Plan 3 -->
+          <div class="bg-white rounded-xl border-2 border-gray-200 p-8 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+            <div class="text-center mb-8">
+              <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-600 mb-2">REQUEST A QUOTE</h3>
+              <h4 class="text-4xl font-bold text-blue-900 mb-1">Enterprise</h4>
+              <p class="text-gray-600">Custom</p>
             </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Unlimited Users
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Unlimited projects
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                12 Months support
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Full DevOps Integration
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Enterprise Solutions
+              </li>
+            </ul>
+            <a href="#contact" class="block w-full text-center px-8 py-4 border-2 border-blue-900 text-blue-900 font-semibold rounded-lg hover:bg-blue-900 hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+              Contact Us
+            </a>
           </div>
         </div>
       </div>
@@ -1029,140 +428,98 @@
     <!-- ====== Pricing End ====== -->
 
     <!-- ====== FAQ Start ====== -->
-    <section id="faq" class="ud-faq">
-      <div class="shape">
-        <img src="assets/images/faq/shape.svg" alt="shape" />
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title text-center mx-auto">
-              <span>FAQ</span>
-              <h2>Any Questions? Answered</h2>
-              <p>
-                Have questions about our services? We've got answers. Here are some frequently asked questions to help you understand what we offer.
+    <section id="faq" class="py-16 lg:py-24 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-4">
+            FAQ
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Any Questions? Answered
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Have questions about our services? We've got answers. Here are some frequently asked questions to help you understand what we offer.
+          </p>
+        </div>
+
+        <!-- FAQ Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <!-- FAQ Item 1 -->
+          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+              <span class="font-semibold text-gray-900">What DevOps services do you offer?</span>
+              <i class="lni lni-chevron-down transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                We provide comprehensive DevOps services, including deployment to Azure using pipelines, Kubernetes management, AWS deployment, and WordPress hosting and optimization.
               </p>
             </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".1s">
-              <div class="accordion">
-                <button
-                        class="ud-faq-btn collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne"
-                >
-              <span class="icon flex-shrink-0">
-                <i class="lni lni-chevron-down"></i>
-              </span>
-                  <span>What DevOps services do you offer?</span>
-                </button>
-                <div id="collapseOne" class="accordion-collapse collapse">
-                  <div class="ud-faq-body">
-                    We provide comprehensive DevOps services, including deployment to Azure using pipelines, Kubernetes management, AWS deployment, and WordPress hosting and optimization.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".15s">
-              <div class="accordion">
-                <button
-                        class="ud-faq-btn collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo"
-                >
-              <span class="icon flex-shrink-0">
-                <i class="lni lni-chevron-down"></i>
-              </span>
-                  <span>How do you ensure secure deployment?</span>
-                </button>
-                <div id="collapseTwo" class="accordion-collapse collapse">
-                  <div class="ud-faq-body">
-                    Security is our top priority. We implement stringent security measures at every step of the deployment process, including automated security scans, secure coding practices, and regular security audits.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".2s">
-              <div class="accordion">
-                <button
-                        class="ud-faq-btn collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree"
-                >
-              <span class="icon flex-shrink-0">
-                <i class="lni lni-chevron-down"></i>
-              </span>
-                  <span>Can you manage multi-cloud environments?</span>
-                </button>
-                <div id="collapseThree" class="accordion-collapse collapse">
-                  <div class="ud-faq-body">
-                    Yes, we specialize in managing multi-cloud environments, ensuring seamless integration and optimization across different cloud platforms such as AWS, Azure, and Google Cloud.
-                  </div>
-                </div>
-              </div>
+          <!-- FAQ Item 2 -->
+          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+              <span class="font-semibold text-gray-900">How do you ensure secure deployment?</span>
+              <i class="lni lni-chevron-down transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                Security is our top priority. We implement stringent security measures at every step of the deployment process, including automated security scans, secure coding practices, and regular security audits.
+              </p>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".1s">
-              <div class="accordion">
-                <button
-                        class="ud-faq-btn collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseFour"
-                >
-              <span class="icon flex-shrink-0">
-                <i class="lni lni-chevron-down"></i>
-              </span>
-                  <span>What kind of support do you provide?</span>
-                </button>
-                <div id="collapseFour" class="accordion-collapse collapse">
-                  <div class="ud-faq-body">
-                    We offer 24/7 support to ensure your systems are always up and running smoothly. Our support includes monitoring, troubleshooting, and regular updates to keep your infrastructure optimized.
-                  </div>
-                </div>
-              </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+              <span class="font-semibold text-gray-900">Can you manage multi-cloud environments?</span>
+              <i class="lni lni-chevron-down transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                Yes, we specialize in managing multi-cloud environments, ensuring seamless integration and optimization across different cloud platforms such as AWS, Azure, and Google Cloud.
+              </p>
             </div>
-            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".15s">
-              <div class="accordion">
-                <button
-                        class="ud-faq-btn collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseFive"
-                >
-              <span class="icon flex-shrink-0">
-                <i class="lni lni-chevron-down"></i>
-              </span>
-                  <span>Do you offer custom development services?</span>
-                </button>
-                <div id="collapseFive" class="accordion-collapse collapse">
-                  <div class="ud-faq-body">
-                    Yes, we offer custom development services tailored to meet your specific needs, including web development, app development, and custom integrations with various platforms.
-                  </div>
-                </div>
-              </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+              <span class="font-semibold text-gray-900">What kind of support do you provide?</span>
+              <i class="lni lni-chevron-down transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                We offer 24/7 support to ensure your systems are always up and running smoothly. Our support includes monitoring, troubleshooting, and regular updates to keep your infrastructure optimized.
+              </p>
             </div>
-            <div class="ud-single-faq wow fadeInUp" data-wow-delay=".2s">
-              <div class="accordion">
-                <button
-                        class="ud-faq-btn collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseSix"
-                >
-              <span class="icon flex-shrink-0">
-                <i class="lni lni-chevron-down"></i>
-              </span>
-                  <span>How do I get started with your services?</span>
-                </button>
-                <div id="collapseSix" class="accordion-collapse collapse">
-                  <div class="ud-faq-body">
-                    Getting started is easy. Just contact us through our website or give us a call, and our team will guide you through the process of understanding your needs and setting up a plan tailored to your requirements.
-                  </div>
-                </div>
-              </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+              <span class="font-semibold text-gray-900">Do you offer custom development services?</span>
+              <i class="lni lni-chevron-down transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                Yes, we offer custom development services tailored to meet your specific needs, including web development, app development, and custom integrations with various platforms.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 6 -->
+          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+              <span class="font-semibold text-gray-900">How do I get started with your services?</span>
+              <i class="lni lni-chevron-down transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                Getting started is easy. Just contact us through our website or give us a call, and our team will guide you through the process of understanding your needs and setting up a plan tailored to your requirements.
+              </p>
             </div>
           </div>
         </div>
@@ -1171,111 +528,82 @@
     <!-- ====== FAQ End ====== -->
 
     <!-- ====== Testimonials Start ====== -->
-    <section id="testimonials" class="ud-testimonials">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title mx-auto text-center">
-              <span>Testimonials</span>
-              <h2>What our Customers Say</h2>
-              <p>
-                Hear from our satisfied customers about their experiences with our services.
-              </p>
-            </div>
-          </div>
+    <section id="testimonials" class="py-16 lg:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-4">
+            Testimonials
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            What our Customers Say
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Hear from our satisfied customers about their experiences with our services.
+          </p>
         </div>
 
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div
-                    class="ud-single-testimonial wow fadeInUp"
-                    data-wow-delay=".1s"
-            >
-              <div class="ud-testimonial-ratings">
-                <i class="lni lni-star-filled"></i>
-                <i class="lni lni-star-filled"></i>
-                <i class="lni lni-star-filled"></i>
-                <i class="lni lni-star-filled"></i>
-                <i class="lni lni-star-filled"></i>
-              </div>
-              <div class="ud-testimonial-content">
-                <p>
-                  "The team at SanBytez transformed our DevOps processes. Their expertise in Azure and Kubernetes is unmatched."
-                </p>
-              </div>
-              <div class="ud-testimonial-info">
-                <div class="ud-testimonial-image">
-                  <img
-                          src="assets/images/testimonials/author-01.png"
-                          alt="author"
-                  />
-                </div>
-                <div class="ud-testimonial-meta">
-                  <!-- <h4>Sabo Masties</h4>
-                  <p>Founder @UIdeck</p> -->
-                </div>
+        <!-- Testimonials Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-300">
+            <div class="flex gap-1 mb-6">
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6 italic">
+              "The team at SanBytez transformed our DevOps processes. Their expertise in Azure and Kubernetes is unmatched."
+            </p>
+            <div class="flex items-center">
+              <img src="assets/images/testimonials/author-01.png" alt="Client" class="w-12 h-12 rounded-full mr-4 object-cover" />
+              <div>
+                <h4 class="font-semibold text-gray-900">Enterprise Client</h4>
+                <p class="text-sm text-gray-600">Technology Leader</p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div
-                    class="ud-single-testimonial wow fadeInUp"
-                    data-wow-delay=".15s"
-            >
-              <div class="ud-testimonial-ratings">
-                <i class="lni lni-star-filled"></i>
-                <i class="lni lni-star-filled"></i>
-                <i class="lni lni-star-filled"></i>
-                <i class="lni lni-star-filled"></i>
-                <i class="lni lni-star-filled"></i>
-              </div>
-              <div class="ud-testimonial-content">
-                <p>
-                  "Their WordPress optimization and AWS deployment services boosted our site's performance and reliability significantly."
-                </p>
-              </div>
-              <div class="ud-testimonial-info">
-                <div class="ud-testimonial-image">
-                  <img
-                          src="assets/images/testimonials/author-02.png"
-                          alt="author"
-                  />
-                </div>
-                <div class="ud-testimonial-meta">
-                  <!-- <h4>Margin Gesmu</h4>
-                  <p>Founder @Lineicons</p> -->
-                </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-300">
+            <div class="flex gap-1 mb-6">
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6 italic">
+              "Their WordPress optimization and AWS deployment services boosted our site's performance and reliability significantly."
+            </p>
+            <div class="flex items-center">
+              <img src="assets/images/testimonials/author-02.png" alt="Client" class="w-12 h-12 rounded-full mr-4 object-cover" />
+              <div>
+                <h4 class="font-semibold text-gray-900">Enterprise Client</h4>
+                <p class="text-sm text-gray-600">Digital Director</p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div
-                    class="ud-single-testimonial wow fadeInUp"
-                    data-wow-delay=".2s"
-            >
-              <div class="ud-testimonial-ratings">
-                <i class="lni lni-star-filled"></i>
-                <i class="lni lni-star-filled"></i>
-                <i class="lni lni-star-filled"></i>
-                <i class="lni lni-star-filled"></i>
-                <i class="lni lni-star-filled"></i>
-              </div>
-              <div class="ud-testimonial-content">
-                <p>
-                  "Excellent support and custom development services. Our multi-cloud environment runs seamlessly thanks to their expertise."
-                </p>
-              </div>
-              <div class="ud-testimonial-info">
-                <div class="ud-testimonial-image">
-                  <img
-                          src="assets/images/testimonials/author-03.png"
-                          alt="author"
-                  />
-                </div>
-                <div class="ud-testimonial-meta">
-                  <!-- <h4>William Smith</h4>
-                  <p>Founder @GrayGrids</p> -->
-                </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-300">
+            <div class="flex gap-1 mb-6">
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6 italic">
+              "Excellent support and custom development services. Our multi-cloud environment runs seamlessly thanks to their expertise."
+            </p>
+            <div class="flex items-center">
+              <img src="assets/images/testimonials/author-03.png" alt="Client" class="w-12 h-12 rounded-full mr-4 object-cover" />
+              <div>
+                <h4 class="font-semibold text-gray-900">Enterprise Client</h4>
+                <p class="text-sm text-gray-600">CTO</p>
               </div>
             </div>
           </div>
@@ -1290,546 +618,272 @@
 
 
     <!-- ====== Contact Start ====== -->
-    <!-- ====== Contact Start ====== -->
-    <section id="contact" class="ud-contact">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-xl-8 col-lg-7">
-            <div class="ud-contact-content-wrapper">
-              <div class="ud-contact-title">
-                <span>CONTACT US</span>
-                <h2>
-                  Let's talk about <br />
-                  Love to hear from you!
-                </h2>
-              </div>
-              <div class="ud-contact-info-wrapper">
-                <div class="ud-single-info">
-                  <div class="ud-info-icon">
-                    <i class="lni lni-map-marker"></i>
-                  </div>
-                  <div class="ud-info-meta">
-                    <h5>Our Location</h5>
-                    <p>575 Govan Mbeki Avenue, Port Elizabeth, Eastern Cape, South Africa</p>
-                  </div>
+    <section id="contact" class="py-16 lg:py-24 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Contact Info -->
+          <div>
+            <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-6">
+              Contact Us
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+              Let's talk about<br />
+              <span class="text-blue-900">Love to hear from you!</span>
+            </h2>
+            <div class="space-y-6">
+              <div class="flex items-start group hover:scale-105 transition-transform duration-300">
+                <div class="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center mr-4 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+                  <i class="lni lni-map-marker text-white text-xl"></i>
                 </div>
-                <div class="ud-single-info">
-                  <div class="ud-info-icon">
-                    <i class="lni lni-envelope"></i>
-                  </div>
-                  <div class="ud-info-meta">
-                    <h5>How Can We Help?</h5>
-                    <p>info@sanbytez.africa</p>
-                    <p>contact@sanbytez.africa</p>
-                  </div>
+                <div>
+                  <h5 class="font-semibold text-gray-900 mb-2">Our Location</h5>
+                  <p class="text-gray-600">575 Govan Mbeki Avenue, Port Elizabeth, Eastern Cape, South Africa</p>
+                </div>
+              </div>
+              <div class="flex items-start group hover:scale-105 transition-transform duration-300">
+                <div class="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center mr-4 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+                  <i class="lni lni-envelope text-white text-xl"></i>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-gray-900 mb-2">How Can We Help?</h5>
+                  <p class="text-gray-600 mb-1">
+                    <a href="mailto:info@sanbytez.africa" class="hover:text-blue-900 transition-colors">info@sanbytez.africa</a>
+                  </p>
+                  <p class="text-gray-600">
+                    <a href="mailto:contact@sanbytez.africa" class="hover:text-blue-900 transition-colors">contact@sanbytez.africa</a>
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-5">
-            <div
-                    class="ud-contact-form-wrapper wow fadeInUp"
-                    data-wow-delay=".2s"
-            >
-              <h3 class="ud-contact-form-title">Send us a Message</h3>
-              <form class="ud-contact-form" id="contactForm" onsubmit="return handleSubmit(event)">
-                <div class="ud-form-group animate__animated">
-                  <label for="fullName">Full Name*</label>
-                  <input
-                          type="text"
-                          id="fullName"
-                          name="fullName"
-                          placeholder="Enter your full name"
-                          required
-                          minlength="2"
-                          class="form-control"
-                  />
-                  <div class="invalid-feedback">Please enter your full name</div>
-                </div>
-                <div class="ud-form-group animate__animated">
-                  <label for="email">Email*</label>
-                  <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          placeholder="Enter your email"
-                          required
-                          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                          class="form-control"
-                  />
-                  <div class="invalid-feedback">Please enter a valid email address</div>
-                </div>
-                <div class="ud-form-group animate__animated">
-                  <label for="phone">Phone*</label>
-                  <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          placeholder="Enter your phone number"
-                          required
-                          pattern="[0-9+\s-]{10,}"
-                          class="form-control"
-                  />
-                  <div class="invalid-feedback">Please enter a valid phone number</div>
-                </div>
-                <div class="ud-form-group animate__animated">
-                  <label for="message">Message*</label>
-                  <textarea
-                          id="message"
-                          name="message"
-                          rows="4"
-                          placeholder="Type your message here"
-                          required
-                          minlength="10"
-                          class="form-control"
-                  ></textarea>
-                  <div class="invalid-feedback">Please enter a message (minimum 10 characters)</div>
-                </div>
-                <div class="ud-form-group mb-0 animate__animated">
-                  <button type="submit" class="ud-main-btn" id="submitBtn">
-                    <span class="btn-text">Send Message</span>
-                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                  </button>
-                </div>
-              </form>
-            </div>
+
+          <!-- Contact Form -->
+          <div class="bg-white rounded-xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+            <form id="contactForm" onsubmit="return handleSubmit(event)" class="space-y-6">
+              <div>
+                <label for="fullName" class="block text-sm font-semibold text-gray-900 mb-2">Full Name*</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Enter your full name"
+                  required
+                  minlength="2"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-900 focus:ring-2 focus:ring-blue-900/20 outline-none transition-all duration-300"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">Email*</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-900 focus:ring-2 focus:ring-blue-900/20 outline-none transition-all duration-300"
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-semibold text-gray-900 mb-2">Phone*</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  required
+                  pattern="[0-9+\s-]{10,}"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-900 focus:ring-2 focus:ring-blue-900/20 outline-none transition-all duration-300"
+                />
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-semibold text-gray-900 mb-2">Message*</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  placeholder="Type your message here"
+                  required
+                  minlength="10"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-900 focus:ring-2 focus:ring-blue-900/20 outline-none transition-all duration-300 resize-none"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                id="submitBtn"
+                class="w-full px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95"
+              >
+                <span class="btn-text">Send Message</span>
+              </button>
+            </form>
           </div>
         </div>
       </div>
     </section>
     <!-- ====== Contact End ====== -->
 
-    <!-- ====== Solar System Start ====== -->
-    <section id="solar-system" class="solar-system-hero">
-      <div class="solar-system-container">
-        <div class="solar-system">
-          <!-- Central Sun -->
-          <div class="sun">
-            <img src="assets/images/logo/logo.svg" alt="Logo" class="logo-sun" />
-            <div class="sun-glow"></div>
-          </div>
-          
-          <!-- Orbit System -->
-          <div class="orbit-system">
-            <!-- Services Planet -->
-            <div class="orbit orbit-1">
-              <div class="planet">
-                <div class="planet-content">
-                  <i class="lni lni-gift"></i>
-                  <span>Services</span>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Solutions Planet -->
-            <div class="orbit orbit-2">
-              <div class="planet">
-                <div class="planet-content">
-                  <i class="lni lni-layout"></i>
-                  <span>Solutions</span>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Products Planet -->
-            <div class="orbit orbit-3">
-              <div class="planet">
-                <div class="planet-content">
-                  <i class="lni lni-move"></i>
-                  <span>Products</span>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Contact Planet -->
-            <div class="orbit orbit-4">
-              <div class="planet">
-                <div class="planet-content">
-                  <i class="lni lni-layers"></i>
-                  <span>Contact</span>
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- ====== Solutions Section ====== -->
+    <section id="solutions" class="py-16 lg:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-4">
+            Our Solutions
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Enterprise-Grade Technology Services
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Comprehensive technology solutions designed to meet the complex needs of modern enterprises.
+          </p>
         </div>
-      </div>
-          <div class="planet planet-2 hover-effect">
-            <div class="planet-content">
-              <i class="lni lni-consulting"></i>
-              <span>Consulting</span>
+        
+        <!-- Solutions Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="group bg-white rounded-xl p-6 border border-gray-200 text-center hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+              <i class="lni lni-cloud text-white text-2xl"></i>
             </div>
-            <div class="planet-trail"></div>
+            <h4 class="text-xl font-bold text-gray-900 mb-3">Cloud Infrastructure</h4>
+            <p class="text-gray-600">Scalable, secure cloud solutions for enterprise workloads</p>
           </div>
-        </div>
-        <div class="orbit orbit-3">
-          <div class="planet planet-3 hover-effect">
-            <div class="planet-content">
-              <i class="lni lni-customer"></i>
-              <span>Customer</span>
+          <div class="group bg-white rounded-xl p-6 border border-gray-200 text-center hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+              <i class="lni lni-code text-white text-2xl"></i>
             </div>
-            <div class="planet-trail"></div>
+            <h4 class="text-xl font-bold text-gray-900 mb-3">Custom Development</h4>
+            <p class="text-gray-600">Bespoke software solutions tailored to your business</p>
           </div>
-        </div>
-        <div class="orbit orbit-4">
-          <div class="planet planet-4 hover-effect">
-            <div class="planet-content">
-              <i class="lni lni-support"></i>
-              <span>Support</span>
+          <div class="group bg-white rounded-xl p-6 border border-gray-200 text-center hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+              <i class="lni lni-shield text-white text-2xl"></i>
             </div>
-            <div class="planet-trail"></div>
+            <h4 class="text-xl font-bold text-gray-900 mb-3">Security & Compliance</h4>
+            <p class="text-gray-600">Enterprise-grade security and regulatory compliance</p>
+          </div>
+          <div class="group bg-white rounded-xl p-6 border border-gray-200 text-center hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+              <i class="lni lni-support text-white text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-3">24/7 Support</h4>
+            <p class="text-gray-600">Round-the-clock technical support and monitoring</p>
           </div>
         </div>
       </div>
     </section>
-    <!-- ====== Solar System End ====== -->
+    <!-- ====== Solutions End ====== -->
 
-    <!-- Features Modal -->
-    <div class="modal fade" id="featuresModal" tabindex="-1" aria-labelledby="featuresModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="featuresModalLabel">Features</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+    <!-- ====== Footer Start ====== -->
+    <footer class="bg-gray-900 text-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+          <!-- Company Info -->
+          <div class="lg:col-span-2">
+            <a href="index.html" class="inline-block mb-4">
+              <img src="assets/images/logo/logo.svg" alt="SanBytez Logo" class="h-10" />
+            </a>
+            <p class="text-gray-400 mb-6 max-w-md">
+              We create digital experiences for brands and companies by using technology.
+            </p>
+            <div class="flex gap-4">
+              <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-900 hover:scale-110 transition-all duration-300">
+                <i class="lni lni-facebook-filled"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-900 hover:scale-110 transition-all duration-300">
+                <i class="lni lni-twitter-filled"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-900 hover:scale-110 transition-all duration-300">
+                <i class="lni lni-instagram-filled"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-900 hover:scale-110 transition-all duration-300">
+                <i class="lni lni-linkedin-original"></i>
+              </a>
+            </div>
           </div>
-          <div class="modal-body">
-            <h6>Our Key Features</h6>
-            <ul>
-              <li>Advanced AI Solutions</li>
-              <li>Enterprise-grade Cloud Services</li>
-              <li>Custom Software Development</li>
-              <li>24/7 Technical Support</li>
-              <li>Scalable Infrastructure</li>
+
+          <!-- Quick Links -->
+          <div>
+            <h5 class="font-semibold text-white mb-4">Quick Links</h5>
+            <ul class="space-y-2">
+              <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+              <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+              <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+              <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
             </ul>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- How it works Modal -->
-    <div class="modal fade" id="howItWorksModal" tabindex="-1" aria-labelledby="howItWorksModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="howItWorksModalLabel">How it works</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <ol>
-              <li>Initial Consultation</li>
-              <li>Requirement Analysis</li>
-              <li>Project Planning</li>
-              <li>Development & Testing</li>
-              <li>Deployment & Support</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Privacy Policy Modal -->
-    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <h6>Data Collection</h6>
-            <p>We collect only the necessary data to provide our services.</p>
-            <h6>Data Protection</h6>
-            <p>All data is encrypted and stored securely.</p>
-            <h6>User Rights</h6>
-            <p>Users have the right to access, modify, and delete their data.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Terms of Service Modal -->
-    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="termsModalLabel">Terms of Service</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <h6>Service Agreement</h6>
-            <p>Terms and conditions for using our services.</p>
-            <h6>Service Levels</h6>
-            <p>Guaranteed service levels and support.</p>
-            <h6>Intellectual Property</h6>
-            <p>Ownership and usage rights of developed software.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Refund Policy Modal -->
-    <div class="modal fade" id="refundModal" tabindex="-1" aria-labelledby="refundModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="refundModalLabel">Refund Policy</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <h6>Refund Conditions</h6>
-            <p>Conditions for refund eligibility.</p>
-            <h6>Refund Process</h6>
-            <p>Steps to request a refund.</p>
-            <h6>Timeline</h6>
-            <p>Expected processing time for refunds.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
-      <div class="shape shape-1">
-        <img src="assets/images/footer/shape-1.svg" alt="shape" />
-      </div>
-      <div class="shape shape-2">
-        <img src="assets/images/footer/shape-2.svg" alt="shape" />
-      </div>
-      <div class="ud-footer-widgets">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <div class="ud-widget">
-                <a href="index.html" class="ud-footer-logo">
-                  <img src="assets/images/logo/logo.svg" alt="logo" />
+          <!-- Our Products -->
+          <div>
+            <h5 class="font-semibold text-white mb-4">Our Products</h5>
+            <ul class="space-y-2">
+              <li>
+                <a href="https://royalhairsupply.co.za/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                  Royal Hair Supply
                 </a>
-                <p class="ud-widget-desc">
-                  We create digital experiences for brands and companies by
-                  using technology.
-                </p>
-                <ul class="ud-widget-socials">
-                  <li>
-                    <a href="#">
-                      <i class="lni lni-facebook-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="lni lni-twitter-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="lni lni-instagram-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="lni lni-linkedin-original"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+              </li>
+              <li>
+                <a href="https://sanbytez.africa/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                  SanBytez Africa
+                </a>
+              </li>
+            </ul>
+          </div>
 
-            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
-              <div class="ud-widget">
-                <h5 class="ud-widget-title">About Us</h5>
-                <ul class="ud-widget-links">
-                  <li>
-                    <a href="javascript:void(0)">Home</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">Features</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">About</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">Testimonial</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
-              <div class="ud-widget">
-                <h5 class="ud-widget-title">Features</h5>
-                <ul class="ud-widget-links">
-                  <li>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#featuresModal">How it works</a>
-                  </li>
-                  <li>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#howItWorksModal">Features</a>
-                  </li>
-                  <li>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy policy</a>
-                  </li>
-                  <li>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of service</a>
-                  </li>
-                  <li>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#refundModal">Refund policy</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
-              <div class="ud-widget">
-                <h5 class="ud-widget-title">Our Products</h5>
-                <ul class="ud-widget-links">
-                  <li>
-                    <a
-                            href="https://royalhairsupply.co.za/"
-                            rel="noopener noreferrer" target="_blank"
-                    >Royal Hair Supply
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                            href="https://sanbytez.africa/"
-                            rel="noopener noreferrer" target="_blank"
-                    >SanBytez Africa
-                    </a>
-                  </li>
-
-                </ul>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-8 col-sm-10">
-              <div class="ud-widget">
-                <h5 class="ud-widget-title">Open Source Tools for E-commerce</h5>
-                <ul class="ud-widget-brands">
-                  <li>
-                    <a
-                            href="https://magento.com/"
-                            rel="noopener noreferrer" target="_blank"
-                    >
-                      <img
-                              src="assets/images/magento.svg"
-                              alt="Magento"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                            href="https://shopify.com/"
-                            rel="noopener noreferrer" target="_blank"
-                    >
-                      <img
-                              src="assets/images/shopify.svg"
-                              alt="Shopify"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                            href="https://woocommerce.com/"
-                            rel="noopener noreferrer" target="_blank"
-                    >
-                      <img
-                              src="assets/images/woocommerce.svg"
-                              alt="WooCommerce"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                            href="https://opencart.com/"
-                            rel="noopener noreferrer" target="_blank"
-                    >
-                      <img
-                              src="assets/images/opencart.svg"
-                              alt="OpenCart"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                            href="https://prestashop.com/"
-                            rel="noopener noreferrer" target="_blank"
-                    >
-                      <img
-                              src="assets/images/prestashop.svg"
-                              alt="PrestaShop"
-                      />
-                    </a>
-                  </li>
-                </ul>
-              </div>
+          <!-- E-commerce Tools -->
+          <div>
+            <h5 class="font-semibold text-white mb-4">E-commerce Tools</h5>
+            <div class="grid grid-cols-2 gap-4">
+              <a href="https://magento.com/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity">
+                <img src="assets/images/magento.svg" alt="Magento" class="h-8" />
+              </a>
+              <a href="https://shopify.com/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity">
+                <img src="assets/images/shopify.svg" alt="Shopify" class="h-8" />
+              </a>
+              <a href="https://woocommerce.com/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity">
+                <img src="assets/images/woocommerce.svg" alt="WooCommerce" class="h-8" />
+              </a>
+              <a href="https://opencart.com/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity">
+                <img src="assets/images/opencart.svg" alt="OpenCart" class="h-8" />
+              </a>
             </div>
           </div>
         </div>
-      </div>
-      <div class="ud-footer-bottom">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8">
-              <ul class="ud-footer-bottom-left">
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#featuresModal">Features</a>
-                </li>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#howItWorksModal">How it works</a>
-                </li>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy policy</a>
-                </li>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of service</a>
-                </li>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#refundModal">Refund policy</a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <p class="ud-footer-bottom-right">
-              </p>
+
+        <!-- Footer Bottom -->
+        <div class="border-t border-gray-800 pt-8 mt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-400 text-sm">
+              &copy; 2025 SanBytez. All rights reserved.
+            </p>
+            <div class="flex flex-wrap gap-6 text-sm">
+              <a href="#privacy" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#terms" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+              <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
             </div>
           </div>
         </div>
       </div>
     </footer>
     <!-- ====== Footer End ====== -->
+    <!-- ====== Footer End ====== -->
 
 
-    <!-- Offer Modal -->
-    <div class="modal fade" id="offerModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <h5 class="modal-title"></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="offer-content magento-offer" data-offer="magento">
-              <h3>Magento Development</h3>
-              <p>Our comprehensive Magento development services include:</p>
-              <ul>
-                <li>Custom Magento Theme Development</li>
-                <li>Extension Development & Integration</li>
-                <li>Performance Optimization</li>
-                <li>Security Enhancements</li>
-                <li>Payment Gateway Integration</li>
-                <li>Migration Services</li>
-              </ul>
-              <p>We help businesses create powerful and scalable e-commerce solutions using Magento's robust platform.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- ====== Back To Top Start ====== -->
-    <button class="back-to-top" aria-label="Back to top">
-      <i class="lni lni-chevron-up"> </i>
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-900 text-white rounded-full shadow-lg hover:bg-blue-800 hover:shadow-xl hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-40 flex items-center justify-center" aria-label="Back to top">
+      <i class="lni lni-chevron-up text-xl"></i>
     </button>
     <!-- ====== Back To Top End ====== -->
 
     <!-- ====== All Javascript Files ====== -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/wow.js@1.1.2/dist/wow.min.js"></script>
+    <script src="assets/js/services-data.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/contact-form.js"></script>
+    <script src="assets/js/cookie-consent.js"></script>
     
-    <!-- Modern features -->
+    <!-- PWA Service Worker -->
     <script type="module">
       // Register service worker for PWA
       if ('serviceWorker' in navigator) {
@@ -1837,220 +891,6 @@
           .then(registration => console.log('ServiceWorker registered'))
           .catch(err => console.error('ServiceWorker registration failed:', err));
       }
-      
-      // Initialize intersection observer for lazy loading
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-            observer.unobserve(entry.target);
-          }
-        });
-      });
-      
-      document.querySelectorAll('.ud-single-feature, .ud-about-content, .ud-single-pricing').forEach((el) => observer.observe(el));
     </script>
-    <script>
-      // ==== for menu scroll
-      const pageLink = document.querySelectorAll(".ud-menu-scroll");
-      const header = document.querySelector(".ud-header");
-
-      pageLink.forEach((elem) => {
-        elem.addEventListener("click", (e) => {
-          e.preventDefault();
-          document.querySelector(elem.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-            offsetTop: 1 - 60,
-          });
-        });
-      });
-
-      // Header scroll effect
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-      });
-
-      // section menu active
-      function onScroll(event) {
-        const sections = document.querySelectorAll(".ud-menu-scroll");
-        const scrollPos =
-          window.pageYOffset ||
-          document.documentElement.scrollTop ||
-          document.body.scrollTop;
-
-        for (let i = 0; i < sections.length; i++) {
-          const currLink = sections[i];
-          const val = currLink.getAttribute("href");
-          const refElement = document.querySelector(val);
-          if (!refElement) continue;
-          
-          const scrollTopMinus = scrollPos + 73;
-          if (
-            refElement.offsetTop <= scrollTopMinus &&
-            refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
-          ) {
-            document.querySelector(".ud-menu-scroll.active")?.classList.remove("active");
-            currLink.classList.add("active");
-          } else {
-            currLink.classList.remove("active");
-          }
-        }
-      }
-
-      window.document.addEventListener("scroll", onScroll);
-    </script>
-    <script src="assets/js/solar-system.js"></script>
-    <script src="assets/js/contact-form.js"></script>
-    <script src="assets/js/cookie-consent.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(() => {
-          const overlay = document.querySelector('.solar-system-overlay');
-          const solarSystem = document.querySelector('.solar-system');
-          
-          overlay.classList.add('fade-out');
-          solarSystem.classList.add('visible');
-        }, 1500);
-      });
-    </script>
-    <!-- Cookie Consent Popup -->
-    <div class="modal fade" id="cookieConsentPopup" tabindex="-1" aria-labelledby="cookieConsentLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="cookieConsentLabel">Cookie Preferences</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <p>We use cookies to enhance your browsing experience and analyze our traffic. Please choose your cookie preferences below:</p>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" id="necessaryCookies" checked disabled>
-              <label class="form-check-label" for="necessaryCookies">
-                Necessary Cookies - Required for the website to function properly
-              </label>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" id="analyticsCookies" checked>
-              <label class="form-check-label" for="analyticsCookies">
-                Analytics Cookies - Help us improve our website
-              </label>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" id="marketingCookies">
-              <label class="form-check-label" for="marketingCookies">
-                Marketing Cookies - Used for targeted advertising
-              </label>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" id="rejectCookies">Reject All</button>
-            <button type="button" class="btn btn-primary" id="acceptCookies">Accept Selected</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Privacy Policy Modal -->
-    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <h6>Last Updated: March 29, 2025</h6>
-            <p>This Privacy Policy describes how SanBytez ("we," "us," or "our") collects, uses, and protects your personal information in accordance with the Protection of Personal Information Act (POPIA) of South Africa.</p>
-            
-            <h6>1. Information We Collect</h6>
-            <p>We collect information that you provide directly to us, including:</p>
-            <ul>
-              <li>Name and contact information</li>
-              <li>Email address</li>
-              <li>Phone number</li>
-              <li>Company details</li>
-              <li>Website usage data</li>
-            </ul>
-
-            <h6>2. How We Use Your Information</h6>
-            <p>We use your information in accordance with POPIA for:</p>
-            <ul>
-              <li>Providing our services</li>
-              <li>Communicating with you</li>
-              <li>Improving our website</li>
-              <li>Marketing purposes (with consent)</li>
-            </ul>
-
-            <h6>3. Data Protection</h6>
-            <p>We implement appropriate security measures to protect your personal information in accordance with POPIA requirements.</p>
-
-            <h6>4. Your Rights</h6>
-            <p>Under POPIA, you have the right to:</p>
-            <ul>
-              <li>Access your personal information</li>
-              <li>Correct or update your information</li>
-              <li>Request deletion of your information</li>
-              <li>Object to processing of your information</li>
-            </ul>
-
-            <h6>5. Contact Us</h6>
-            <p>For privacy-related inquiries, contact our Information Officer at privacy@sanbytez.africa</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Terms of Service Modal -->
-    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="termsModalLabel">Terms of Service</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <h6>Last Updated: March 29, 2025</h6>
-            <p>These Terms of Service ("Terms") govern your use of SanBytez's services and website. By using our services, you agree to these Terms.</p>
-
-            <h6>1. Acceptance of Terms</h6>
-            <p>By accessing or using our services, you agree to be bound by these Terms and our Privacy Policy.</p>
-
-            <h6>2. Service Description</h6>
-            <p>SanBytez provides digital solutions and services in accordance with South African law, including:</p>
-            <ul>
-              <li>Web development</li>
-              <li>Mobile app development</li>
-              <li>Digital consulting</li>
-              <li>IT support services</li>
-            </ul>
-
-            <h6>3. User Obligations</h6>
-            <p>You agree to:</p>
-            <ul>
-              <li>Provide accurate information</li>
-              <li>Maintain confidentiality of your account</li>
-              <li>Comply with South African laws</li>
-              <li>Use services responsibly</li>
-            </ul>
-
-            <h6>4. Intellectual Property</h6>
-            <p>All content and materials on our website are protected by South African intellectual property laws.</p>
-
-            <h6>5. Limitation of Liability</h6>
-            <p>Our liability is limited in accordance with the Consumer Protection Act and other applicable South African laws.</p>
-
-            <h6>6. Governing Law</h6>
-            <p>These Terms are governed by the laws of the Republic of South Africa.</p>
-
-            <h6>7. Contact Information</h6>
-            <p>For legal inquiries, contact us at legal@sanbytez.africa</p>
-          </div>
-        </div>
-      </div>
-    </div>
   </body>
 </html>
