@@ -41,15 +41,15 @@ function renderServices() {
   if (!container || typeof servicesData === 'undefined') return;
 
   container.innerHTML = servicesData.map(service => `
-    <div class="group bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300">
-      <div class="w-16 h-16 mb-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
-        <i class="${service.icon} text-white text-2xl"></i>
+    <div class="group bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+      <div class="w-16 h-16 mb-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
+        <i class="${service.icon} text-white text-2xl group-hover:scale-110 transition-transform duration-300"></i>
       </div>
-      <h3 class="text-xl font-bold text-gray-900 mb-3">${service.title}</h3>
+      <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-900 transition-colors duration-300">${service.title}</h3>
       <p class="text-gray-600 leading-relaxed mb-4">${service.description}</p>
-      <button onclick="openServiceModal('${service.id}')" class="text-blue-900 font-semibold hover:text-blue-800 flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
+      <button onclick="openServiceModal('${service.id}')" class="text-blue-900 font-semibold hover:text-blue-800 flex items-center gap-2 group-hover:gap-3 transition-all duration-300 group-hover:font-bold">
         Learn More
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
       </button>
