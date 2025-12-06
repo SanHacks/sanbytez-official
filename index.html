@@ -103,6 +103,33 @@
       /* Smooth scroll */
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+      
+      /* Smooth scrolling with momentum */
+      * {
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      /* Section spacing improvements */
+      section {
+        scroll-margin-top: 100px;
+      }
+      
+      /* Better section transitions */
+      section[id] {
+        position: relative;
+      }
+      
+      /* Gradient overlays for depth */
+      .section-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background: linear-gradient(to bottom, rgba(30, 64, 175, 0.03), transparent);
+        pointer-events: none;
       }
       
       /* Custom scrollbar */
@@ -304,7 +331,8 @@
     <!-- ====== Services End ====== -->
 
     <!-- ====== About Start ====== -->
-    <section id="about" class="py-16 lg:py-24 bg-gray-50">
+    <section id="about" class="py-20 lg:py-32 bg-gray-50 relative overflow-hidden">
+      <div class="section-gradient"></div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -336,7 +364,8 @@
     <!-- ====== About End ====== -->
 
     <!-- ====== Pricing Start ====== -->
-    <section id="pricing" class="py-16 lg:py-24 bg-white">
+    <section id="pricing" class="py-20 lg:py-32 bg-white relative overflow-hidden">
+      <div class="section-gradient"></div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16">
@@ -494,7 +523,8 @@
     <!-- ====== Pricing End ====== -->
 
     <!-- ====== FAQ Start ====== -->
-    <section id="faq" class="py-16 lg:py-24 bg-gray-50">
+    <section id="faq" class="py-20 lg:py-32 bg-gray-50 relative overflow-hidden">
+      <div class="section-gradient"></div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16">
@@ -594,7 +624,8 @@
     <!-- ====== FAQ End ====== -->
 
     <!-- ====== Testimonials Start ====== -->
-    <section id="testimonials" class="py-16 lg:py-24 bg-white">
+    <section id="testimonials" class="py-20 lg:py-32 bg-white relative overflow-hidden">
+      <div class="section-gradient"></div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16">
@@ -684,7 +715,8 @@
 
 
     <!-- ====== Contact Start ====== -->
-    <section id="contact" class="py-16 lg:py-24 bg-gray-50">
+    <section id="contact" class="py-20 lg:py-32 bg-gray-50 relative overflow-hidden">
+      <div class="section-gradient"></div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <!-- Contact Info -->
@@ -790,7 +822,8 @@
     <!-- ====== Contact End ====== -->
 
     <!-- ====== Solutions Section ====== -->
-    <section id="solutions" class="py-16 lg:py-24 bg-white">
+    <section id="solutions" class="py-20 lg:py-32 bg-white relative overflow-hidden">
+      <div class="section-gradient"></div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16">
@@ -847,8 +880,10 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           <!-- Company Info -->
           <div class="lg:col-span-2">
-            <a href="index.html" class="inline-block mb-4">
-              <img src="assets/images/logo/SanBytez-logo-transparent.png" alt="SanBytez Logo" class="h-10 hover:scale-110 transition-all duration-300" />
+            <a href="index.html" class="inline-block mb-4 group">
+              <div class="bg-white/10 rounded-lg px-3 py-2 inline-block group-hover:bg-white/20 transition-all duration-300">
+                <img src="assets/images/logo/SanBytez-logo-transparent.png" alt="SanBytez Logo" class="h-10 group-hover:scale-110 transition-all duration-300" />
+              </div>
             </a>
             <p class="text-gray-400 mb-6 max-w-md">
               We create digital experiences for brands and companies by using technology.

@@ -294,26 +294,45 @@ function initBackToTop() {
   });
 }
 
-// Scroll animations - fade in elements on scroll
+// Enhanced scroll animations with stagger effect
 function initScrollAnimations() {
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -100px 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('animate-fade-in');
-        entry.target.classList.remove('opacity-0');
-        observer.unobserve(entry.target);
+        // Stagger animation for cards
+        const delay = entry.target.classList.contains('service-card') || 
+                     entry.target.classList.contains('pricing-card') || 
+                     entry.target.classList.contains('testimonial-card') 
+                     ? index * 100 : 0;
+        
+        setTimeout(() => {
+          entry.target.classList.add('animate-fade-in');
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }, delay);
       }
     });
   }, observerOptions);
 
-  // Observe all sections and cards
-  document.querySelectorAll('section, .service-card, .pricing-card, .testimonial-card').forEach(el => {
-    el.classList.add('opacity-0', 'transition-opacity', 'duration-700');
+  // Observe all sections and cards with initial state
+  document.querySelectorAll('section').forEach((el, index) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    observer.observe(el);
+  });
+
+  // Observe cards with stagger
+  document.querySelectorAll('.service-card, .pricing-card, .testimonial-card').forEach((el, index) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`;
     observer.observe(el);
   });
 }
