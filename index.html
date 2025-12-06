@@ -56,10 +56,73 @@
             fontFamily: {
               sans: ['Inter', 'system-ui', 'sans-serif'],
             },
+            animation: {
+              'fade-in': 'fadeIn 0.7s ease-in-out',
+              'slide-up': 'slideUp 0.7s ease-out',
+              'ripple': 'ripple 0.6s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideUp: {
+                '0%': { opacity: '0', transform: 'translateY(30px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              ripple: {
+                '0%': { transform: 'scale(0)', opacity: '1' },
+                '100%': { transform: 'scale(4)', opacity: '0' },
+              },
+            },
           }
         }
       }
     </script>
+    <style>
+      /* Ripple effect */
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        pointer-events: none;
+        animation: ripple 0.6s ease-out;
+      }
+      
+      /* Typing cursor */
+      .typing-cursor::after {
+        content: '|';
+        animation: blink 1s infinite;
+      }
+      
+      @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+      }
+      
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: #1e40af;
+        border-radius: 5px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: #1e3a8a;
+      }
+    </style>
     
     <!-- Line Icons -->
     <link rel="stylesheet" href="assets/css/lineicons.css" />
@@ -154,10 +217,10 @@
               cloud infrastructure, and digital innovation.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 mb-12">
-              <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+              <a href="#contact" class="cta-button inline-flex items-center justify-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95 relative overflow-hidden">
                 Schedule a Consultation
               </a>
-              <a href="#services" class="inline-flex items-center justify-center px-8 py-4 border-2 border-blue-900 text-blue-900 font-semibold rounded-lg hover:bg-blue-900 hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+              <a href="#services" class="cta-button inline-flex items-center justify-center px-8 py-4 border-2 border-blue-900 text-blue-900 font-semibold rounded-lg hover:bg-blue-900 hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95 relative overflow-hidden">
                 Our Services
               </a>
             </div>
@@ -289,7 +352,7 @@
         <!-- Pricing Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <!-- Plan 1 -->
-          <div class="bg-white rounded-xl border-2 border-gray-200 p-8 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
+          <div class="pricing-card bg-white rounded-xl border-2 border-gray-200 p-8 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
             <div class="text-center mb-8">
               <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-600 mb-2">STARTING FROM</h3>
               <h4 class="text-4xl font-bold text-blue-900 mb-1">ZAR 599</h4>
@@ -334,7 +397,7 @@
           </div>
 
           <!-- Plan 2 - Popular -->
-          <div class="bg-white rounded-xl border-2 border-blue-900 p-8 relative hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.05] transition-all duration-300 cursor-pointer group">
+          <div class="pricing-card bg-white rounded-xl border-2 border-blue-900 p-8 relative hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.05] transition-all duration-300 cursor-pointer group">
             <span class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-6 py-1 bg-blue-900 text-white text-xs font-bold uppercase rounded-full">
               Popular
             </span>
@@ -381,7 +444,7 @@
           </div>
 
           <!-- Plan 3 -->
-          <div class="bg-white rounded-xl border-2 border-gray-200 p-8 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
+          <div class="pricing-card bg-white rounded-xl border-2 border-gray-200 p-8 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
             <div class="text-center mb-8">
               <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-600 mb-2">REQUEST A QUOTE</h3>
               <h4 class="text-4xl font-bold text-blue-900 mb-1">Enterprise</h4>
@@ -547,7 +610,7 @@
         <!-- Testimonials Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Testimonial 1 -->
-          <div class="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-300">
+          <div class="testimonial-card bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-300">
             <div class="flex gap-1 mb-6">
               <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
               <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
@@ -568,7 +631,7 @@
           </div>
 
           <!-- Testimonial 2 -->
-          <div class="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-300">
+          <div class="testimonial-card bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-300">
             <div class="flex gap-1 mb-6">
               <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
               <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
@@ -589,7 +652,7 @@
           </div>
 
           <!-- Testimonial 3 -->
-          <div class="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-300">
+          <div class="testimonial-card bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-300">
             <div class="flex gap-1 mb-6">
               <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
               <i class="lni lni-star-filled text-yellow-400 text-xl"></i>

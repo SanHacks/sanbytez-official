@@ -33,6 +33,27 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Back to top button
   initBackToTop();
+  
+  // Scroll animations
+  initScrollAnimations();
+  
+  // Counter animations
+  initCounters();
+  
+  // Parallax effects
+  initParallax();
+  
+  // Interactive buttons
+  initButtonEffects();
+  
+  // Form interactions
+  initFormInteractions();
+  
+  // Image lazy loading
+  initLazyLoading();
+  
+  // Typing animation
+  initTypingAnimation();
 });
 
 // Render services from data
@@ -41,7 +62,7 @@ function renderServices() {
   if (!container || typeof servicesData === 'undefined') return;
 
   container.innerHTML = servicesData.map(service => `
-    <div class="group bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+    <div class="service-card group bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 cursor-pointer">
       <div class="w-16 h-16 mb-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
         <i class="${service.icon} text-white text-2xl group-hover:scale-110 transition-transform duration-300"></i>
       </div>
@@ -271,4 +292,209 @@ function initBackToTop() {
       behavior: 'smooth'
     });
   });
+}
+
+// Scroll animations - fade in elements on scroll
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-fade-in');
+        entry.target.classList.remove('opacity-0');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all sections and cards
+  document.querySelectorAll('section, .service-card, .pricing-card, .testimonial-card').forEach(el => {
+    el.classList.add('opacity-0', 'transition-opacity', 'duration-700');
+    observer.observe(el);
+  });
+}
+
+// Counter animations for statistics
+function initCounters() {
+  const counters = document.querySelectorAll('[data-count]');
+  
+  const animateCounter = (counter) => {
+    const target = parseInt(counter.getAttribute('data-count'));
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
+    
+    const updateCounter = () => {
+      current += increment;
+      if (current < target) {
+        counter.textContent = Math.floor(current) + (counter.getAttribute('data-suffix') || '');
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.textContent = target + (counter.getAttribute('data-suffix') || '');
+      }
+    };
+    
+    updateCounter();
+  };
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+        entry.target.classList.add('counted');
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => counterObserver.observe(counter));
+}
+
+// Parallax scrolling effects
+function initParallax() {
+  const parallaxElements = document.querySelectorAll('[data-parallax]');
+  
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    
+    parallaxElements.forEach(element => {
+      const speed = parseFloat(element.getAttribute('data-parallax')) || 0.5;
+      const yPos = -(scrolled * speed);
+      element.style.transform = `translateY(${yPos}px)`;
+    });
+  });
+}
+
+// Interactive button effects (ripple, hover)
+function initButtonEffects() {
+  // Add ripple effect to buttons
+  document.querySelectorAll('button, a[class*="btn"], .cta-button').forEach(button => {
+    button.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      ripple.classList.add('ripple');
+      
+      this.appendChild(ripple);
+      
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+  
+  // Add magnetic effect to CTA buttons
+  document.querySelectorAll('a[href="#contact"], .cta-button').forEach(button => {
+    button.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+    });
+    
+    button.addEventListener('mouseleave', function() {
+      this.style.transform = 'translate(0, 0)';
+    });
+  });
+}
+
+// Form input interactions
+function initFormInteractions() {
+  const inputs = document.querySelectorAll('input, textarea');
+  
+  inputs.forEach(input => {
+    // Floating label effect
+    input.addEventListener('focus', function() {
+      this.parentElement?.classList.add('focused');
+    });
+    
+    input.addEventListener('blur', function() {
+      if (!this.value) {
+        this.parentElement?.classList.remove('focused');
+      }
+    });
+    
+    // Check if input has value on load
+    if (input.value) {
+      input.parentElement?.classList.add('focused');
+    }
+    
+    // Real-time validation feedback
+    input.addEventListener('input', function() {
+      if (this.checkValidity()) {
+        this.classList.remove('border-red-500');
+        this.classList.add('border-green-500');
+      } else {
+        this.classList.remove('border-green-500');
+        this.classList.add('border-red-500');
+      }
+    });
+  });
+}
+
+// Lazy loading images with fade-in
+function initLazyLoading() {
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.classList.add('animate-fade-in');
+          img.classList.remove('opacity-0');
+          img.removeAttribute('data-src');
+          observer.unobserve(img);
+        }
+      }
+    });
+  }, { rootMargin: '50px' });
+
+  document.querySelectorAll('img[data-src]').forEach(img => {
+    img.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+    imageObserver.observe(img);
+  });
+}
+
+// Typing animation for hero text
+function initTypingAnimation() {
+  const typingElement = document.querySelector('[data-typing]');
+  if (!typingElement) return;
+  
+  const text = typingElement.textContent;
+  const words = text.split(' ');
+  typingElement.textContent = '';
+  typingElement.classList.add('typing-cursor');
+  
+  let wordIndex = 0;
+  let charIndex = 0;
+  
+  const type = () => {
+    if (wordIndex < words.length) {
+      const word = words[wordIndex];
+      if (charIndex < word.length) {
+        typingElement.textContent += word[charIndex];
+        charIndex++;
+        setTimeout(type, 100);
+      } else {
+        typingElement.textContent += ' ';
+        wordIndex++;
+        charIndex = 0;
+        setTimeout(type, wordIndex === words.length ? 0 : 200);
+      }
+    } else {
+      typingElement.classList.remove('typing-cursor');
+    }
+  };
+  
+  // Start typing after a delay
+  setTimeout(type, 500);
 }
