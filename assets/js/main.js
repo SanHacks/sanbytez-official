@@ -102,8 +102,13 @@ function initMobileMenu() {
   });
 }
 
-// Smooth scroll
+// Enhanced smooth scroll with easing
 function initSmoothScroll() {
+  // Easing function for smooth scroll
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
@@ -112,38 +117,71 @@ function initSmoothScroll() {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
-        const headerOffset = 80;
+        const headerOffset = 100;
         const elementPosition = target.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const startPosition = window.pageYOffset;
+        const distance = offsetPosition - startPosition;
+        const duration = 1000; // 1 second
+        let start = null;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+        function step(timestamp) {
+          if (!start) start = timestamp;
+          const progress = timestamp - start;
+          const percentage = Math.min(progress / duration, 1);
+          const eased = easeInOutCubic(percentage);
+          
+          window.scrollTo(0, startPosition + distance * eased);
+          
+          if (progress < duration) {
+            requestAnimationFrame(step);
+          }
+        }
+        
+        requestAnimationFrame(step);
       }
     });
   });
 }
 
-// Sticky header
+// Enhanced sticky header with smooth transitions
 function initStickyHeader() {
   const header = document.getElementById('header');
   if (!header) return;
 
   let lastScroll = 0;
-  window.addEventListener('scroll', () => {
+  let ticking = false;
+  
+  function updateHeader() {
     const currentScroll = window.pageYOffset;
     
     if (currentScroll > 50) {
-      header.classList.add('shadow-lg');
-      header.classList.remove('border-b');
+      header.classList.add('shadow-xl', 'bg-white');
+      header.classList.remove('border-b', 'bg-white/95');
+      header.style.backdropFilter = 'none';
     } else {
-      header.classList.remove('shadow-lg');
-      header.classList.add('border-b');
+      header.classList.remove('shadow-xl');
+      header.classList.add('border-b', 'bg-white/95');
+      header.style.backdropFilter = 'blur(12px)';
+    }
+    
+    // Hide/show header on scroll direction
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      header.style.transform = 'translateY(-100%)';
+    } else {
+      header.style.transform = 'translateY(0)';
     }
     
     lastScroll = currentScroll;
-  });
+    ticking = false;
+  }
+  
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, { passive: true });
 }
 
 // Active navigation
