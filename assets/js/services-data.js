@@ -37,6 +37,18 @@ const servicesData = [
     ]
   },
   {
+    id: 'android',
+    title: 'Android Application Development',
+    icon: 'lni-android',
+    description: 'Production-grade Android apps built for speed, stability, and great UX.',
+    features: [
+      'Native Android (Kotlin/Java)',
+      'Modern UI (Material Design)',
+      'Play Store Release & Updates',
+      'Performance & Crash Monitoring'
+    ]
+  },
+  {
     id: 'cloud',
     title: 'Cloud Solutions',
     icon: 'lni-layers',
