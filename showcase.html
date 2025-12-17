@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#2563EB">
+    <meta name="theme-color" content="#2563eb">
     <title>Showcase - SanBytez | Our Portfolio & Products</title>
     <meta name="description" content="Explore our portfolio of innovative software solutions and products. See how we've helped businesses transform their digital presence.">
     
@@ -16,6 +16,10 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
@@ -122,7 +126,6 @@
     
     <!-- Preload key resources -->
     <link rel="preload" href="assets/images/logo/SanBytez-horizontal.png" as="image">
-    <script type="module" src="sw.js"></script>
     <link rel="manifest" href="manifest.json">
   </head>
   <body>
@@ -172,7 +175,7 @@
           </div>
 
           <!-- Mobile Menu Button -->
-          <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-gray-900 hover:bg-gray-100 transition-colors">
+          <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-gray-900 hover:bg-gray-100 transition-colors" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -422,6 +425,136 @@
           </div>
         </div>
 
+        <!-- WiseDrive -->
+        <div class="mb-32 showcase-item" data-animate="fade-up">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-2 tilt-3d">
+              <div class="bg-gradient-to-br from-amber-50 to-white rounded-2xl shadow-2xl overflow-hidden p-8 hover:shadow-3xl transition-shadow duration-300">
+                <div class="aspect-video bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg flex items-center justify-center">
+                  <div class="text-center">
+                    <svg class="w-24 h-24 text-amber-900 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 104 0M3 13l2-5a2 2 0 012-1h10a2 2 0 012 1l2 5M5 13h14M7 13v4m10-4v4" />
+                    </svg>
+                    <h3 class="text-2xl font-bold text-amber-900">WiseDrive</h3>
+                    <p class="text-amber-700 mt-2">Driving School Website</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="order-1 lg:order-1">
+              <div class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-4">
+                Business Website
+              </div>
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                WiseDrive
+              </h2>
+              <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                A modern driving school website focused on trust and conversions, with clear service information, streamlined contact flows, and a mobile-first experience.
+              </p>
+              <div class="space-y-4 mb-8">
+                <div class="flex items-start">
+                  <svg class="w-6 h-6 text-blue-900 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Mobile-first UX</h4>
+                    <p class="text-gray-600">Fast, accessible layout optimized for phones</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <svg class="w-6 h-6 text-blue-900 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Clear service packaging</h4>
+                    <p class="text-gray-600">Pricing and offerings presented for quick decision-making</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <svg class="w-6 h-6 text-blue-900 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Conversion-ready CTAs</h4>
+                    <p class="text-gray-600">Prominent calls-to-action for enquiries and bookings</p>
+                  </div>
+                </div>
+              </div>
+              <a href="https://wisedrive.co.za/" target="_blank" rel="noopener noreferrer" class="magnetic-hover inline-flex items-center justify-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                Visit Website
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsFlow -->
+        <div class="mb-32 showcase-item" data-animate="fade-up">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <div class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-4">
+                Business Messaging Platform
+              </div>
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                WhatsFlow
+              </h2>
+              <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                A business WhatsApp management system designed to centralize conversations, improve response times, and help teams manage customer communication at scale.
+              </p>
+              <div class="space-y-4 mb-8">
+                <div class="flex items-start">
+                  <svg class="w-6 h-6 text-blue-900 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Unified inbox</h4>
+                    <p class="text-gray-600">Manage customer chats in one place</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <svg class="w-6 h-6 text-blue-900 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Team workflows</h4>
+                    <p class="text-gray-600">Assign conversations and streamline follow-ups</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <svg class="w-6 h-6 text-blue-900 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-1">Operational visibility</h4>
+                    <p class="text-gray-600">Track activity and keep communication consistent</p>
+                  </div>
+                </div>
+              </div>
+              <a href="https://whatsflow-prod.laravel.cloud/" target="_blank" rel="noopener noreferrer" class="magnetic-hover inline-flex items-center justify-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                Visit Website
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+            <div class="order-1 lg:order-2 tilt-3d">
+              <div class="bg-gradient-to-br from-emerald-50 to-white rounded-2xl shadow-2xl overflow-hidden p-8 hover:shadow-3xl transition-shadow duration-300">
+                <div class="aspect-video bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-lg flex items-center justify-center">
+                  <div class="text-center">
+                    <svg class="w-24 h-24 text-emerald-900 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.77 9.77 0 01-4-.8L3 20l1.2-3.2A8.72 8.72 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                    <h3 class="text-2xl font-bold text-emerald-900">WhatsFlow</h3>
+                    <p class="text-emerald-700 mt-2">Business WhatsApp Management</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
     <!-- ====== Showcase Items End ====== -->
@@ -475,6 +608,8 @@
               <li><a href="https://royalhairsupply.co.za/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">Royal Hair Supply</a></li>
               <li><a href="https://sanbytez.africa/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">SanBytez Africa</a></li>
               <li><a href="https://sharpsavings.online/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">SharpSavings.online</a></li>
+              <li><a href="https://wisedrive.co.za/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">WiseDrive</a></li>
+              <li><a href="https://whatsflow-prod.laravel.cloud/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">WhatsFlow</a></li>
             </ul>
           </div>
           <div>
