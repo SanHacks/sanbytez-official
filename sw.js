@@ -1,43 +1,75 @@
-const CACHE_NAME = 'sanbytez-cache-v2';
+const CACHE_NAME = 'sanbytez-cache-v3';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/assets/css/ud-styles.css',
-  '/assets/images/logo/logo.svg',
-  'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
-  'https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css',
-  'https://cdn.lineicons.com/4.0/lineicons.css'
+  '/manifest.json',
+  '/assets/css/lineicons.css',
+  '/assets/css/cookie-consent.css',
+  '/assets/js/services-data.js',
+  '/assets/js/main.js',
+  '/assets/js/contact-form.js',
+  '/assets/js/cookie-consent.js',
+  '/assets/images/logo/SanBytez-horizontal.png',
+  '/assets/images/favicon.svg',
+  '/assets/images/favicon-32x32.png',
+  '/assets/images/favicon-16x16.png',
+  '/assets/images/apple-touch-icon.png'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      await Promise.allSettled(urlsToCache.map((url) => cache.add(url)));
+      await self.skipWaiting();
+    })()
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(keys.map((key) => (key !== CACHE_NAME ? caches.delete(key) : Promise.resolve())));
+      await self.clients.claim();
+    })()
   );
 });
 
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        if (response) {
-          return response;
+  const request = event.request;
+
+  // Navigation: serve cached shell if available
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      (async () => {
+        try {
+          const network = await fetch(request);
+          return network;
+        } catch (_) {
+          const cached = await caches.match('/index.html');
+          return cached || Response.error();
         }
+      })()
+    );
+    return;
+  }
 
-        return fetch(event.request)
-          .then(response => {
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-            
-            const responseToCache = response.clone();
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
+  // Only cache same-origin assets; let cross-origin requests pass through
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
 
-            return response;
-          });
-      })
+  event.respondWith(
+    (async () => {
+      const cached = await caches.match(request);
+      if (cached) return cached;
+
+      const response = await fetch(request);
+      if (!response || response.status !== 200) return response;
+
+      const cache = await caches.open(CACHE_NAME);
+      cache.put(request, response.clone());
+      return response;
+    })()
   );
 });

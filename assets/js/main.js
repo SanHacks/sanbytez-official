@@ -2,6 +2,8 @@
 // Handles navigation, modals, services rendering, and interactive features
 
 document.addEventListener('DOMContentLoaded', function() {
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // Load services data and render
   if (typeof servicesData !== 'undefined') {
     renderServices();
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initMobileMenu();
   
   // Smooth scroll navigation
-  initSmoothScroll();
+  if (!prefersReducedMotion) initSmoothScroll();
   
   // Sticky header
   initStickyHeader();
@@ -35,16 +37,25 @@ document.addEventListener('DOMContentLoaded', function() {
   initBackToTop();
   
   // Scroll animations
-  initScrollAnimations();
+  if (!prefersReducedMotion) {
+    initScrollAnimations();
+  } else {
+    // Ensure content is visible when motion is reduced
+    document.querySelectorAll('[data-animate], section').forEach((el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.style.transition = 'none';
+    });
+  }
   
   // Counter animations
-  initCounters();
+  if (!prefersReducedMotion) initCounters();
   
   // Parallax effects
-  initParallax();
+  if (!prefersReducedMotion) initParallax();
   
   // Interactive buttons
-  initButtonEffects();
+  if (!prefersReducedMotion) initButtonEffects();
   
   // Form interactions
   initFormInteractions();
@@ -53,25 +64,25 @@ document.addEventListener('DOMContentLoaded', function() {
   initLazyLoading();
   
   // Typing animation
-  initTypingAnimation();
+  if (!prefersReducedMotion) initTypingAnimation();
   
   // Scroll progress bar
   initScrollProgress();
   
   // Custom cursor
-  initCustomCursor();
+  if (!prefersReducedMotion) initCustomCursor();
   
   // Particle system
-  initParticleSystem();
+  if (!prefersReducedMotion) initParticleSystem();
   
   // 3D Tilt effects
-  init3DTilt();
+  if (!prefersReducedMotion) init3DTilt();
   
   // Magnetic hover
-  initMagneticHover();
+  if (!prefersReducedMotion) initMagneticHover();
   
   // Enhanced hero animations
-  initHeroAnimations();
+  if (!prefersReducedMotion) initHeroAnimations();
 });
 
 // Render services from data
@@ -103,8 +114,24 @@ function initMobileMenu() {
   const menu = document.getElementById('mobile-menu');
   if (!btn || !menu) return;
 
+  const closeMenu = () => {
+    if (menu.classList.contains('hidden')) return;
+    menu.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open menu');
+  };
+
+  const openMenu = () => {
+    if (!menu.classList.contains('hidden')) return;
+    menu.classList.remove('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close menu');
+  };
+
   btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
+    const isHidden = menu.classList.contains('hidden');
+    if (isHidden) openMenu();
+    else closeMenu();
     // Animate hamburger icon
     const icon = btn.querySelector('svg');
     if (icon) {
@@ -116,8 +143,22 @@ function initMobileMenu() {
   const links = menu.querySelectorAll('a');
   links.forEach(link => {
     link.addEventListener('click', () => {
-      menu.classList.add('hidden');
+      closeMenu();
     });
+  });
+
+  // Close menu on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Close menu on outside click
+  document.addEventListener('click', (e) => {
+    const target = e.target;
+    if (!(target instanceof Element)) return;
+    if (menu.classList.contains('hidden')) return;
+    if (menu.contains(target) || btn.contains(target)) return;
+    closeMenu();
   });
 }
 
@@ -154,6 +195,15 @@ function initSmoothScroll() {
           
           if (progress < duration) {
             requestAnimationFrame(step);
+          } else {
+            // Update URL + move focus for a11y
+            try {
+              history.pushState(null, '', href);
+            } catch (_) {
+              // ignore
+            }
+            if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+            target.focus({ preventScroll: true });
           }
         }
         
@@ -224,11 +274,14 @@ function initActiveNavigation() {
 
     navLinks.forEach(link => {
       link.classList.remove('text-blue-900', 'font-bold');
+      link.removeAttribute('aria-current');
+      const underline = link.querySelector('span');
+      if (underline) underline.classList.remove('w-full');
       const href = link.getAttribute('href');
       if (href === `#${current}`) {
         link.classList.add('text-blue-900', 'font-bold');
+        link.setAttribute('aria-current', 'page');
         // Add underline
-        const underline = link.querySelector('span');
         if (underline) {
           underline.classList.add('w-full');
         }
@@ -250,6 +303,63 @@ function initActiveNavigation() {
 
 // Modals
 function initModals() {
+  const focusableSelector = [
+    'a[href]',
+    'button:not([disabled])',
+    'textarea:not([disabled])',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])'
+  ].join(',');
+
+  const state = {
+    lastFocused: null,
+  };
+
+  const getOpenModal = () => document.querySelector('.modal:not(.hidden)');
+
+  const trapFocus = (modal, e) => {
+    if (e.key !== 'Tab') return;
+    const focusables = Array.from(modal.querySelectorAll(focusableSelector))
+      .filter((el) => el.offsetParent !== null);
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement;
+    if (e.shiftKey && active === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && active === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+
+  const openModal = (modal) => {
+    if (!modal) return;
+    state.lastFocused = document.activeElement;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    const content = modal.querySelector('.modal-content') || modal;
+    if (!content.hasAttribute('tabindex')) content.setAttribute('tabindex', '-1');
+    content.focus();
+  };
+
+  const closeModal = (modal) => {
+    if (!modal) return;
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+    const toFocus = state.lastFocused;
+    state.lastFocused = null;
+    if (toFocus && typeof toFocus.focus === 'function') {
+      setTimeout(() => toFocus.focus(), 0);
+    }
+  };
+
+  // Expose for other scripts (e.g., contact form)
+  window.__sbOpenModal = openModal;
+  window.__sbCloseModal = closeModal;
+
   // Close modals on backdrop click
   document.querySelectorAll('.modal-overlay').forEach(overlay => {
     overlay.addEventListener('click', function(e) {
@@ -264,6 +374,29 @@ function initModals() {
     btn.addEventListener('click', function() {
       closeModal(this.closest('.modal'));
     });
+  });
+
+  // Open modal buttons (privacy/terms)
+  document.querySelectorAll('[data-open-modal]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-open-modal');
+      if (!id) return;
+      openModal(document.getElementById(id));
+    });
+  });
+
+  // Escape closes the currently open modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const open = getOpenModal();
+    if (open) closeModal(open);
+  });
+
+  // Focus trapping for open modal
+  document.addEventListener('keydown', (e) => {
+    const open = getOpenModal();
+    if (!open) return;
+    trapFocus(open, e);
   });
 }
 
@@ -296,19 +429,37 @@ function openServiceModal(serviceId) {
     `;
   }
 
-  modal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
+  if (typeof window.__sbOpenModal === 'function') window.__sbOpenModal(modal);
+  else {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
 }
 
 function closeModal(modal) {
   if (!modal) return;
-  modal.classList.add('hidden');
-  document.body.style.overflow = '';
+  if (typeof window.__sbCloseModal === 'function') window.__sbCloseModal(modal);
+  else {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
 }
 
 // FAQ Accordion
 function initFAQ() {
-  document.querySelectorAll('.faq-button').forEach(button => {
+  document.querySelectorAll('.faq-button').forEach((button, index) => {
+    const content = button.nextElementSibling;
+    const btnId = button.id || `faq-btn-${index + 1}`;
+    const panelId = content?.id || `faq-panel-${index + 1}`;
+    button.id = btnId;
+    if (content) {
+      content.id = panelId;
+      content.setAttribute('role', 'region');
+      content.setAttribute('aria-labelledby', btnId);
+    }
+    button.setAttribute('aria-controls', panelId);
+    button.setAttribute('aria-expanded', 'false');
+
     button.addEventListener('click', function() {
       const content = this.nextElementSibling;
       const icon = this.querySelector('i');
@@ -320,6 +471,7 @@ function initFAQ() {
           item.classList.add('hidden');
           const otherButton = item.previousElementSibling;
           otherButton?.classList.remove('active');
+          otherButton?.setAttribute('aria-expanded', 'false');
           const otherIcon = otherButton?.querySelector('i');
           if (otherIcon) {
             otherIcon.classList.remove('rotate-180');
@@ -331,10 +483,12 @@ function initFAQ() {
       if (isOpen) {
         content.classList.add('hidden');
         this.classList.remove('active');
+        this.setAttribute('aria-expanded', 'false');
         if (icon) icon.classList.remove('rotate-180');
       } else {
         content.classList.remove('hidden');
         this.classList.add('active');
+        this.setAttribute('aria-expanded', 'true');
         if (icon) icon.classList.add('rotate-180');
       }
     });
@@ -615,7 +769,54 @@ function initButtonEffects() {
 // Form input interactions
 function initFormInteractions() {
   const inputs = document.querySelectorAll('input, textarea');
-  
+
+  const setError = (input, message) => {
+    const descId = input.getAttribute('aria-describedby');
+    const errorEl = descId ? document.getElementById(descId) : null;
+    input.setAttribute('aria-invalid', 'true');
+    input.classList.remove('border-green-500');
+    input.classList.add('border-red-500');
+    if (errorEl) {
+      errorEl.textContent = message || 'Please check this field.';
+      errorEl.classList.remove('hidden');
+    }
+  };
+
+  const clearError = (input) => {
+    const descId = input.getAttribute('aria-describedby');
+    const errorEl = descId ? document.getElementById(descId) : null;
+    input.removeAttribute('aria-invalid');
+    input.classList.remove('border-red-500');
+    input.classList.add('border-green-500');
+    if (errorEl) {
+      errorEl.textContent = '';
+      errorEl.classList.add('hidden');
+    }
+  };
+
+  const neutral = (input) => {
+    const descId = input.getAttribute('aria-describedby');
+    const errorEl = descId ? document.getElementById(descId) : null;
+    input.removeAttribute('aria-invalid');
+    input.classList.remove('border-red-500', 'border-green-500');
+    if (errorEl) {
+      errorEl.textContent = '';
+      errorEl.classList.add('hidden');
+    }
+  };
+
+  const validate = (input) => {
+    // Don't aggressively mark required-but-empty as invalid while typing
+    const value = (input.value || '').trim();
+    const touched = input.dataset.touched === 'true';
+    if (!touched && value.length === 0) {
+      neutral(input);
+      return;
+    }
+    if (input.checkValidity()) clearError(input);
+    else setError(input, input.validationMessage);
+  };
+
   inputs.forEach(input => {
     // Floating label effect
     input.addEventListener('focus', function() {
@@ -623,25 +824,29 @@ function initFormInteractions() {
     });
     
     input.addEventListener('blur', function() {
+      this.dataset.touched = 'true';
       if (!this.value) {
         this.parentElement?.classList.remove('focused');
       }
+      validate(this);
     });
     
     // Check if input has value on load
     if (input.value) {
       input.parentElement?.classList.add('focused');
+      input.dataset.touched = 'true';
     }
     
     // Real-time validation feedback
     input.addEventListener('input', function() {
-      if (this.checkValidity()) {
-        this.classList.remove('border-red-500');
-        this.classList.add('border-green-500');
-      } else {
-        this.classList.remove('border-green-500');
-        this.classList.add('border-red-500');
-      }
+      validate(this);
+    });
+
+    // Intercept native invalid bubbles and show inline errors
+    input.addEventListener('invalid', function(e) {
+      e.preventDefault();
+      this.dataset.touched = 'true';
+      validate(this);
     });
   });
 }
@@ -738,18 +943,23 @@ function initCustomCursor() {
   
   // Hide default cursor on desktop
   if (window.matchMedia('(pointer: fine)').matches) {
-    document.body.style.cursor = 'none';
+    // Don't hide the OS cursor for users navigating with keyboard or assistive tech
+    document.body.style.cursor = '';
     
     let mouseX = 0, mouseY = 0;
     let cursorX = 0, cursorY = 0;
     const trails = [];
     const trailCount = 5;
+
+    // Hide until first mouse move (prevents top-left artifact)
+    cursor.style.opacity = '0';
     
     // Create trail elements
     for (let i = 0; i < trailCount; i++) {
       const trail = document.createElement('div');
       trail.className = 'cursor-trail';
       trail.style.opacity = (1 - i / trailCount) * 0.5;
+      trail.style.opacity = '0';
       document.body.appendChild(trail);
       trails.push({ element: trail, x: 0, y: 0 });
     }
@@ -785,6 +995,10 @@ function initCustomCursor() {
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
+      cursor.style.opacity = '1';
+      trails.forEach((t, i) => {
+        t.element.style.opacity = (1 - i / trailCount) * 0.5;
+      });
     }, { passive: true });
     
     // Cursor hover states
