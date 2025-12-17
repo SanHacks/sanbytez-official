@@ -1,0 +1,73 @@
+/* Service Descriptions */
+.set-size #sun dl.infos dd:after {
+  content: 'Enterprise Solutions';
+}
+
+.set-size #mercury dl.infos dd:after {
+  content: 'Full Stack Development';
+}
+
+.set-size #venus dl.infos dd:after {
+  content: 'Native & Cross-platform';
+}
+
+.set-size #earth dl.infos dd:after {
+  content: 'Machine Learning & AI';
+}
+
+.set-size #mars dl.infos dd:after {
+  content: 'AWS & Azure Expert';
+}
+
+.set-size #jupiter dl.infos dd:after {
+  content: 'Security & Compliance';
+}
+
+.set-size #saturn dl.infos dd:after {
+  content: 'Technical Strategy';
+}
+
+.set-size #uranus dl.infos dd:after {
+  content: 'CI/CD & Automation';
+}
+
+.set-size #neptune dl.infos dd:after {
+  content: '24/7 Tech Support';
+}
+
+/* Project Counts */
+.set-distance #sun dl.infos dd:after {
+  content: '50+ Enterprise Projects';
+}
+
+.set-distance #mercury dl.infos dd:after {
+  content: '100+ Web Applications';
+}
+
+.set-distance #venus dl.infos dd:after {
+  content: '45+ Mobile Apps';
+}
+
+.set-distance #earth dl.infos dd:after {
+  content: '30+ AI Solutions';
+}
+
+.set-distance #mars dl.infos dd:after {
+  content: '75+ Cloud Deployments';
+}
+
+.set-distance #jupiter dl.infos dd:after {
+  content: '60+ Security Audits';
+}
+
+.set-distance #saturn dl.infos dd:after {
+  content: '40+ Consulting Projects';
+}
+
+.set-distance #uranus dl.infos dd:after {
+  content: '80+ DevOps Pipelines';
+}
+
+.set-distance #neptune dl.infos dd:after {
+  content: '1000+ Support Tickets';
+}

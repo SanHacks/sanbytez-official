@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#2563EB">
+    <meta name="color-scheme" content="light dark">
+    <title>SanBytez - Innovative Software Solutions for the Modern Web</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="SanBytez - Modern Software Solutions & Web Development">
+    <meta name="description" content="Transform your digital presence with our innovative software solutions. Expert web development, mobile apps, and cloud services.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanbytez.com/">
+    <meta property="og:title" content="SanBytez - Modern Software Solutions & Web Development">
+    <meta property="og:description" content="Transform your digital presence with our innovative software solutions. Expert web development, mobile apps, and cloud services.">
+    <meta property="og:image" content="https://sanbytez.com/assets/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sanbytez.com/">
+    <meta property="twitter:title" content="SanBytez - Modern Software Solutions & Web Development">
+    <meta property="twitter:description" content="Transform your digital presence with our innovative software solutions. Expert web development, mobile apps, and cloud services.">
+    <meta property="twitter:image" content="https://sanbytez.com/assets/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1e40af',
+              secondary: '#1e3a8a',
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.7s ease-in-out',
+              'slide-up': 'slideUp 0.7s ease-out',
+              'ripple': 'ripple 0.6s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideUp: {
+                '0%': { opacity: '0', transform: 'translateY(30px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              ripple: {
+                '0%': { transform: 'scale(0)', opacity: '1' },
+                '100%': { transform: 'scale(4)', opacity: '0' },
+              },
+            },
+          }
+        }
+      }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    
+    <!-- Line Icons -->
+    <link rel="stylesheet" href="assets/css/lineicons.css" />
+    <link rel="stylesheet" href="assets/css/cookie-consent.css" />
+    
+    <!-- Preload key resources -->
+    <link rel="preload" href="assets/images/logo/SanBytez-horizontal.png" as="image">
+    
+    <!-- PWA support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  </head>
+  <body>
+    <!-- ====== Header Start ====== -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-100 transition-all duration-500 ease-out">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <a href="index.html" class="flex items-center group">
+            <div class="bg-white rounded-lg px-3 py-2 shadow-md border border-gray-100 group-hover:shadow-lg group-hover:border-blue-200 transition-all duration-300">
+              <img src="assets/images/logo/SanBytez-horizontal.png" alt="SanBytez Logo" class="h-8 lg:h-10 transition-all duration-300 group-hover:scale-110" />
+            </div>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex items-center space-x-8">
+            <a href="#home" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              Home
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#services" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              Services
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#about" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              About
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#pricing" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              Pricing
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#contact" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              Contact
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#solutions" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              Solutions
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="showcase.html" class="nav-link text-gray-900 font-medium hover:text-blue-900 transition-colors duration-300 relative group">
+              Showcase
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-gray-900 hover:bg-gray-100 transition-colors">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden pb-4">
+          <div class="flex flex-col space-y-2">
+            <a href="#home" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">Home</a>
+            <a href="#services" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">Services</a>
+            <a href="#about" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">About</a>
+            <a href="#pricing" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">Pricing</a>
+            <a href="#contact" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">Contact</a>
+                    <a href="#solutions" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">Solutions</a>
+                    <a href="showcase.html" class="mobile-nav-link px-4 py-2 text-gray-900 font-medium hover:text-blue-900 hover:bg-gray-50 rounded-md transition-all">Showcase</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- ====== Header End ====== -->
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    
+    <!-- ====== Hero Start ====== -->
+    <section id="home" class="min-h-screen pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden flex items-center">
+      <!-- Animated gradient mesh background -->
+      <div class="gradient-mesh"></div>
+      
+      <!-- Floating geometric shapes -->
+      <div class="floating-shape w-64 h-64 top-20 left-10 opacity-20"></div>
+      <div class="floating-shape w-48 h-48 bottom-32 right-20 opacity-15"></div>
+      <div class="floating-shape w-32 h-32 top-1/2 right-1/4 opacity-10"></div>
+      
+      <!-- Particle system -->
+      <div id="particles-container" class="absolute inset-0 pointer-events-none"></div>
+      
+      <!-- Background gradient -->
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-blue-50/30 to-transparent pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Hero Content -->
+          <div class="hero-content" data-animate="slide-up">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 hero-title">
+              Enterprise Software Solutions<br>
+              <span class="text-blue-900 hero-highlight">Built for Scale</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 max-w-2xl hero-description" data-animate="slide-up" data-delay="200">
+              We deliver cutting-edge technology solutions that drive business transformation. 
+              Trusted by leading enterprises for mission-critical software development, 
+              cloud infrastructure, and digital innovation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 mb-12 hero-buttons" data-animate="slide-up" data-delay="400">
+              <a href="#contact" class="cta-button magnetic-hover group inline-flex items-center justify-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 active:scale-95 relative overflow-hidden transform hover:scale-105 glow-on-hover">
+                <span class="relative z-10 flex items-center">
+                  Schedule a Consultation
+                  <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
+              </a>
+              <a href="#services" class="cta-button magnetic-hover group inline-flex items-center justify-center px-8 py-4 border-2 border-blue-900 text-blue-900 font-semibold rounded-lg hover:bg-blue-900 hover:text-white hover:shadow-lg hover:-translate-y-1 transition-all duration-300 active:scale-95 relative overflow-hidden transform hover:scale-105">
+                <span class="relative z-10 flex items-center">
+                  Our Services
+                  <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+            <!-- Stats -->
+            <div class="flex flex-wrap gap-8 pt-8 border-t border-gray-200 hero-stats" data-animate="slide-up" data-delay="600">
+              <div class="group hover:scale-105 transition-transform duration-300 tilt-3d">
+                <h3 class="text-4xl font-bold text-blue-900 mb-2 counter-stat" data-count="20" data-suffix="+">0+</h3>
+                <p class="text-sm uppercase tracking-wider text-gray-600">Satisfied Clients</p>
+              </div>
+              <div class="group hover:scale-105 transition-transform duration-300 tilt-3d">
+                <h3 class="text-4xl font-bold text-blue-900 mb-2 counter-stat" data-count="8" data-suffix="+">0+</h3>
+                <p class="text-sm uppercase tracking-wider text-gray-600">Years Experience</p>
+              </div>
+              <div class="group hover:scale-105 transition-transform duration-300 tilt-3d">
+                <h3 class="text-4xl font-bold text-blue-900 mb-2 counter-stat" data-count="99.9" data-suffix="%">0%</h3>
+                <p class="text-sm uppercase tracking-wider text-gray-600">Uptime SLA</p>
+              </div>
+            </div>
+          </div>
+          <!-- Hero Image -->
+          <div class="relative hero-image" data-animate="slide-right" data-delay="300">
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-3xl transition-shadow duration-300 tilt-3d glass-effect">
+              <svg width="100%" height="100%" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="hover:scale-105 transition-transform duration-300" data-parallax="0.3">
+                <rect width="600" height="500" fill="#f8fafc"/>
+                <rect x="50" y="50" width="500" height="400" rx="8" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+                <rect x="80" y="80" width="200" height="30" rx="4" fill="#e5e7eb"/>
+                <rect x="80" y="130" width="150" height="20" rx="4" fill="#e5e7eb"/>
+                <rect x="80" y="160" width="180" height="20" rx="4" fill="#e5e7eb"/>
+                <rect x="80" y="200" width="440" height="200" rx="4" fill="#f3f4f6"/>
+                <circle cx="300" cy="300" r="60" fill="#2563eb" opacity="0.1"/>
+                <path d="M280 280 L300 300 L320 280" stroke="#2563eb" stroke-width="3" fill="none"/>
+                <text x="300" y="330" text-anchor="middle" fill="#6b7280" font-size="14" font-family="Inter, sans-serif">Enterprise Solutions</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Modal -->
+    <div id="serviceModal" class="modal hidden fixed inset-0 z-50 overflow-y-auto">
+      <div class="modal-overlay fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
+      <div class="flex min-h-screen items-center justify-center p-4">
+        <div class="modal-content relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-8 transform transition-all">
+          <button class="modal-close absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors" aria-label="Close">
+            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <h3 class="modal-title text-2xl font-bold text-gray-900 mb-6"></h3>
+          <div class="modal-body text-gray-700"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ====== Hero End ====== -->
+
+    <!-- ====== Services Start ====== -->
+    <section id="services" class="py-16 lg:py-24 bg-white" data-animate="fade-up">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-4">
+            Services
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Our Technology Solutions
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            We deliver cutting-edge technology solutions to transform your business and drive innovation.
+          </p>
+        </div>
+        
+        <!-- Services Grid - Populated from services-data.js -->
+        <div id="services-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Services will be dynamically inserted here -->
+        </div>
+      </div>
+    </section>
+    <!-- ====== Services End ====== -->
+
+    <!-- ====== About Start ====== -->
+    <section id="about" class="py-20 lg:py-32 bg-gray-50 relative overflow-hidden" data-animate="fade-up">
+      <div class="section-gradient"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-6">
+              About Us
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Innovating the Future of Software Solutions
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-4">
+              At SanBytez, we are dedicated to pioneering advanced software solutions that drive innovation and excellence. Our team of experts is committed to delivering state-of-the-art e-commerce platforms, mobile applications, and comprehensive hosting services that empower businesses to thrive in the digital age.
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed mb-8">
+              With a focus on cutting-edge technology and unparalleled service, we aim to elevate your business with bespoke solutions tailored to your unique needs. Join us on a journey to explore the limitless possibilities of tomorrow's technology.
+            </p>
+            <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+              Get in Touch
+            </a>
+          </div>
+          <div class="relative">
+            <div class="rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300">
+              <img src="https://images.pexels.com/photos/5632382/pexels-photo-5632382.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="SanBytez Team" class="w-full h-auto hover:scale-105 transition-transform duration-300" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== About End ====== -->
+
+    <!-- ====== Pricing Start ====== -->
+    <section id="pricing" class="py-20 lg:py-32 bg-white relative overflow-hidden" data-animate="fade-up">
+      <div class="section-gradient"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-4">
+            Pricing
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Our Pricing Plans
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Explore our flexible pricing options tailored to meet your business needs, from DevOps to e-commerce solutions.
+          </p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Plan 1 -->
+          <div class="pricing-card tilt-3d magnetic-hover bg-white rounded-xl border-2 border-gray-200 p-8 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 cursor-pointer group" data-animate="scale-in">
+            <div class="text-center mb-8">
+              <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-600 mb-2">STARTING FROM</h3>
+              <h4 class="text-4xl font-bold text-blue-900 mb-1">ZAR 599</h4>
+              <p class="text-gray-600">/month</p>
+              <p class="text-sm text-gray-500 mt-2">+ Initial Development Fee</p>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                5 Users
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                All UI components
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Lifetime access
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                4 Months support
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                DevOps on Azure & AWS
+              </li>
+            </ul>
+            <a href="#contact" class="block w-full text-center px-8 py-4 border-2 border-blue-900 text-blue-900 font-semibold rounded-lg hover:bg-blue-900 hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+              Purchase Now
+            </a>
+          </div>
+
+          <!-- Plan 2 - Popular -->
+          <div class="pricing-card tilt-3d magnetic-hover bg-white rounded-xl border-2 border-blue-900 p-8 relative hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.05] transition-all duration-300 cursor-pointer group" data-animate="scale-in">
+            <span class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-6 py-1 bg-blue-900 text-white text-xs font-bold uppercase rounded-full">
+              Popular
+            </span>
+            <div class="text-center mb-8">
+              <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-600 mb-2">REQUEST A QUOTE</h3>
+              <h4 class="text-4xl font-bold text-blue-900 mb-1">Custom</h4>
+              <p class="text-gray-600">Enterprise</p>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                10 Users
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Multiple projects
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                6 Months support
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Kubernetes Deployment
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Advanced E-commerce Solutions
+              </li>
+            </ul>
+            <a href="#contact" class="block w-full text-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+              Contact Us
+            </a>
+          </div>
+
+          <!-- Plan 3 -->
+          <div class="pricing-card tilt-3d magnetic-hover bg-white rounded-xl border-2 border-gray-200 p-8 hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 cursor-pointer group" data-animate="scale-in">
+            <div class="text-center mb-8">
+              <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-600 mb-2">REQUEST A QUOTE</h3>
+              <h4 class="text-4xl font-bold text-blue-900 mb-1">Enterprise</h4>
+              <p class="text-gray-600">Custom</p>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Unlimited Users
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Unlimited projects
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                12 Months support
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Full DevOps Integration
+              </li>
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-blue-900 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Enterprise Solutions
+              </li>
+            </ul>
+            <a href="#contact" class="block w-full text-center px-8 py-4 border-2 border-blue-900 text-blue-900 font-semibold rounded-lg hover:bg-blue-900 hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 active:scale-95">
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Pricing End ====== -->
+
+    <!-- ====== FAQ Start ====== -->
+    <section id="faq" class="py-20 lg:py-32 bg-gray-50 relative overflow-hidden" data-animate="fade-up">
+      <div class="section-gradient"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-4">
+            FAQ
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Any Questions? Answered
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Have questions about our services? We've got answers. Here are some frequently asked questions to help you understand what we offer.
+          </p>
+        </div>
+
+        <!-- FAQ Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <!-- FAQ Item 1 -->
+          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+              <span class="font-semibold text-gray-900">What DevOps services do you offer?</span>
+              <i class="lni lni-chevron-down transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                We provide comprehensive DevOps services, including deployment to Azure using pipelines, Kubernetes management, AWS deployment, and WordPress hosting and optimization.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+              <span class="font-semibold text-gray-900">How do you ensure secure deployment?</span>
+              <i class="lni lni-chevron-down transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                Security is our top priority. We implement stringent security measures at every step of the deployment process, including automated security scans, secure coding practices, and regular security audits.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+              <span class="font-semibold text-gray-900">Can you manage multi-cloud environments?</span>
+              <i class="lni lni-chevron-down transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                Yes, we specialize in managing multi-cloud environments, ensuring seamless integration and optimization across different cloud platforms such as AWS, Azure, and Google Cloud.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+              <span class="font-semibold text-gray-900">What kind of support do you provide?</span>
+              <i class="lni lni-chevron-down transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                We offer 24/7 support to ensure your systems are always up and running smoothly. Our support includes monitoring, troubleshooting, and regular updates to keep your infrastructure optimized.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+              <span class="font-semibold text-gray-900">Do you offer custom development services?</span>
+              <i class="lni lni-chevron-down transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                Yes, we offer custom development services tailored to meet your specific needs, including web development, app development, and custom integrations with various platforms.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 6 -->
+          <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <button class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+              <span class="font-semibold text-gray-900">How do I get started with your services?</span>
+              <i class="lni lni-chevron-down transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                Getting started is easy. Just contact us through our website or give us a call, and our team will guide you through the process of understanding your needs and setting up a plan tailored to your requirements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== FAQ End ====== -->
+
+    <!-- ====== Testimonials Start ====== -->
+    <section id="testimonials" class="py-20 lg:py-32 bg-white relative overflow-hidden" data-animate="fade-up">
+      <div class="section-gradient"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-4">
+            Testimonials
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            What our Customers Say
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Hear from our satisfied customers about their experiences with our services.
+          </p>
+        </div>
+
+        <!-- Testimonials Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card tilt-3d magnetic-hover bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-300" data-animate="fade-up">
+            <div class="flex gap-1 mb-6">
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6 italic">
+              "The team at SanBytez transformed our DevOps processes. Their expertise in Azure and Kubernetes is unmatched."
+            </p>
+            <div class="flex items-center">
+              <img src="assets/images/testimonials/author-01.png" alt="Client" class="w-12 h-12 rounded-full mr-4 object-cover" />
+              <div>
+                <h4 class="font-semibold text-gray-900">Enterprise Client</h4>
+                <p class="text-sm text-gray-600">Technology Leader</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card tilt-3d magnetic-hover bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-300" data-animate="fade-up">
+            <div class="flex gap-1 mb-6">
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6 italic">
+              "Their WordPress optimization and AWS deployment services boosted our site's performance and reliability significantly."
+            </p>
+            <div class="flex items-center">
+              <img src="assets/images/testimonials/author-02.png" alt="Client" class="w-12 h-12 rounded-full mr-4 object-cover" />
+              <div>
+                <h4 class="font-semibold text-gray-900">Enterprise Client</h4>
+                <p class="text-sm text-gray-600">Digital Director</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card tilt-3d magnetic-hover bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 transition-all duration-300" data-animate="fade-up">
+            <div class="flex gap-1 mb-6">
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+              <i class="lni lni-star-filled text-yellow-400 text-xl"></i>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6 italic">
+              "Excellent support and custom development services. Our multi-cloud environment runs seamlessly thanks to their expertise."
+            </p>
+            <div class="flex items-center">
+              <img src="assets/images/testimonials/author-03.png" alt="Client" class="w-12 h-12 rounded-full mr-4 object-cover" />
+              <div>
+                <h4 class="font-semibold text-gray-900">Enterprise Client</h4>
+                <p class="text-sm text-gray-600">CTO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Testimonials End ====== -->
+
+    <!-- ====== Technologies and Services Start ====== -->
+    <section id="technologies" class="py-20 lg:py-32 bg-gray-50" data-animate="fade-up">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Technologies and Services We Use</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">A comprehensive overview of the major frameworks, BI services, Python tools, and programming languages utilized by our company.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Frameworks</h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>Symfony</li>
+              <li>Laravel</li>
+              <li>Django</li>
+              <li>Flask</li>
+              <li>React</li>
+              <li>Vue.js</li>
+              <li>Angular</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Business Intelligence (BI) Services</h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>Tableau</li>
+              <li>Power BI</li>
+              <li>Looker</li>
+              <li>QlikView</li>
+              <li>Google Data Studio</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Python Tools</h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>Pandas</li>
+              <li>NumPy</li>
+              <li>Matplotlib</li>
+              <li>Scikit-learn</li>
+              <li>TensorFlow</li>
+              <li>PyTorch</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Programming Languages</h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>Python</li>
+              <li>PHP</li>
+              <li>JavaScript</li>
+              <li>Java</li>
+              <li>C#</li>
+              <li>Ruby</li>
+              <li>Go</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-16 text-center text-gray-700 text-lg">
+          <p>Thank you for considering our company. We are committed to leveraging the best technologies and services to deliver outstanding results.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Technologies and Services End ====== -->
+
+    <!-- ====== Team Start ====== -->
+
+    <!-- ====== Team End ====== -->
+
+
+    <!-- ====== Contact Start ====== -->
+    <section id="contact" class="py-20 lg:py-32 bg-gray-50 relative overflow-hidden" data-animate="fade-up">
+      <div class="section-gradient"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Contact Info -->
+          <div>
+            <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-6">
+              Contact Us
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+              Let's talk about<br />
+              <span class="text-blue-900">Love to hear from you!</span>
+            </h2>
+            <div class="space-y-6">
+              <div class="flex items-start group hover:scale-105 transition-transform duration-300">
+                <div class="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center mr-4 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                  <i class="lni lni-map-marker text-white text-xl"></i>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-gray-900 mb-2">Our Location</h5>
+                  <p class="text-gray-600">575 Govan Mbeki Avenue, Port Elizabeth, Eastern Cape, South Africa</p>
+                </div>
+              </div>
+              <div class="flex items-start group hover:scale-105 transition-transform duration-300">
+                <div class="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center mr-4 group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                  <i class="lni lni-envelope text-white text-xl"></i>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-gray-900 mb-2">How Can We Help?</h5>
+                  <p class="text-gray-600 mb-1">
+                    <a href="mailto:info@sanbytez.africa" class="hover:text-blue-900 transition-colors">info@sanbytez.africa</a>
+                  </p>
+                  <p class="text-gray-600">
+                    <a href="mailto:contact@sanbytez.africa" class="hover:text-blue-900 transition-colors">contact@sanbytez.africa</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="bg-white rounded-xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+            <form id="contactForm" onsubmit="return handleSubmit(event)" class="space-y-6">
+              <div>
+                <label for="fullName" class="block text-sm font-semibold text-gray-900 mb-2">Full Name*</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Enter your full name"
+                  required
+                  minlength="2"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-900 focus:ring-2 focus:ring-blue-900/20 outline-none transition-all duration-300"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">Email*</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-900 focus:ring-2 focus:ring-blue-900/20 outline-none transition-all duration-300"
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-semibold text-gray-900 mb-2">Phone*</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  required
+                  pattern="[0-9+\s-]{10,}"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-900 focus:ring-2 focus:ring-blue-900/20 outline-none transition-all duration-300"
+                />
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-semibold text-gray-900 mb-2">Message*</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  placeholder="Type your message here"
+                  required
+                  minlength="10"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-900 focus:ring-2 focus:ring-blue-900/20 outline-none transition-all duration-300 resize-none"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                id="submitBtn"
+                class="w-full px-8 py-4 bg-blue-900 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-800 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 active:scale-95"
+              >
+                <span class="btn-text">Send Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Contact End ====== -->
+
+    <!-- ====== Solutions Section ====== -->
+    <section id="solutions" class="py-20 lg:py-32 bg-white relative overflow-hidden" data-animate="fade-up">
+      <div class="section-gradient"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-full uppercase tracking-wide mb-4">
+            Our Solutions
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Enterprise-Grade Technology Services
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Comprehensive technology solutions designed to meet the complex needs of modern enterprises.
+          </p>
+        </div>
+        
+        <!-- Solutions Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="group bg-white rounded-xl p-6 border border-gray-200 text-center hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+              <i class="lni lni-cloud text-white text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-3">Cloud Infrastructure</h4>
+            <p class="text-gray-600">Scalable, secure cloud solutions for enterprise workloads</p>
+          </div>
+          <div class="group bg-white rounded-xl p-6 border border-gray-200 text-center hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+              <i class="lni lni-code text-white text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-3">Custom Development</h4>
+            <p class="text-gray-600">Bespoke software solutions tailored to your business</p>
+          </div>
+          <div class="group bg-white rounded-xl p-6 border border-gray-200 text-center hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+              <i class="lni lni-shield text-white text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-3">Security & Compliance</h4>
+            <p class="text-gray-600">Enterprise-grade security and regulatory compliance</p>
+          </div>
+          <div class="group bg-white rounded-xl p-6 border border-gray-200 text-center hover:border-blue-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300">
+            <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-900 to-blue-800 rounded-lg flex items-center justify-center group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+              <i class="lni lni-support text-white text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-3">24/7 Support</h4>
+            <p class="text-gray-600">Round-the-clock technical support and monitoring</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Solutions End ====== -->
+
+
+    <!-- ====== Footer Start ====== -->
+    <footer class="bg-gray-900 text-white py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
+          <!-- Company Info -->
+          <div class="lg:col-span-2">
+            <a href="index.html" class="inline-block mb-4 group">
+              <div class="bg-white/10 rounded-lg px-3 py-2 inline-block group-hover:bg-white/20 transition-all duration-300">
+                <img src="assets/images/logo/SanBytez-horizontal.png" alt="SanBytez Logo" class="h-8 group-hover:scale-110 transition-all duration-300" />
+              </div>
+            </a>
+            <p class="text-gray-400 mb-6 max-w-md">
+              We create digital experiences for brands and companies by using technology.
+            </p>
+            <div class="flex gap-4">
+              <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-900 hover:scale-110 transition-all duration-300">
+                <i class="lni lni-facebook-filled"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-900 hover:scale-110 transition-all duration-300">
+                <i class="lni lni-twitter-filled"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-900 hover:scale-110 transition-all duration-300">
+                <i class="lni lni-instagram-filled"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-900 hover:scale-110 transition-all duration-300">
+                <i class="lni lni-linkedin-original"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h5 class="font-semibold text-white mb-4">Quick Links</h5>
+            <ul class="space-y-2">
+              <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+              <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+              <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+              <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+            </ul>
+          </div>
+
+          <!-- Our Products -->
+          <div>
+            <h5 class="font-semibold text-white mb-4">Our Products</h5>
+            <ul class="space-y-2">
+              <li>
+                <a href="https://royalhairsupply.co.za/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">
+                  Royal Hair Supply
+                </a>
+              </li>
+              <li>
+                <a href="https://sanbytez.africa/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">
+                  SanBytez Africa
+                </a>
+              </li>
+              <li>
+                <a href="https://sharpsavings.online/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">
+                  SharpSavings.online
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- E-commerce Solutions -->
+          <div>
+            <h5 class="font-semibold text-white mb-4">E-commerce Solutions</h5>
+            <p class="text-gray-400 text-xs mb-3">Platforms we work with</p>
+            <div class="grid grid-cols-2 gap-4">
+              <a href="https://wordpress.org/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center justify-center bg-white/5 rounded-lg p-2">
+                <img src="assets/images/wordpress.svg" alt="WordPress" class="h-8" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="text-white text-sm font-medium" style="display:none;">WordPress</span>
+              </a>
+              <a href="https://magento.com/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center justify-center bg-white/5 rounded-lg p-2">
+                <img src="assets/images/magento.svg" alt="Magento" class="h-8" />
+              </a>
+              <a href="https://shopify.com/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center justify-center bg-white/5 rounded-lg p-2">
+                <img src="assets/images/shopify.svg" alt="Shopify" class="h-8" />
+              </a>
+              <a href="https://woocommerce.com/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center justify-center bg-white/5 rounded-lg p-2">
+                <img src="assets/images/woocommerce.svg" alt="WooCommerce" class="h-8" />
+              </a>
+              <a href="https://opencart.com/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center justify-center bg-white/5 rounded-lg p-2">
+                <img src="assets/images/opencart.svg" alt="OpenCart" class="h-8" />
+              </a>
+            </div>
+          </div>
+
+          <!-- Cloud Services -->
+          <div>
+            <h5 class="font-semibold text-white mb-4">Cloud Services</h5>
+            <p class="text-gray-400 text-xs mb-3">Cloud platforms we deploy on</p>
+            <div class="grid grid-cols-2 gap-4">
+              <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center justify-center bg-white/5 rounded-lg p-2">
+                <img src="assets/images/aws.svg" alt="AWS" class="h-8" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="text-white text-sm font-medium" style="display:none;">AWS</span>
+              </a>
+              <a href="https://azure.microsoft.com/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center justify-center bg-white/5 rounded-lg p-2">
+                <img src="assets/images/azure.svg" alt="Microsoft Azure" class="h-8" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="text-white text-sm font-medium" style="display:none;">Azure</span>
+              </a>
+              <a href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center justify-center bg-white/5 rounded-lg p-2">
+                <img src="assets/images/gcp.svg" alt="Google Cloud Platform" class="h-8" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="text-white text-sm font-medium" style="display:none;">GCP</span>
+              </a>
+              <a href="https://www.digitalocean.com/" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center justify-center bg-white/5 rounded-lg p-2">
+                <img src="assets/images/digitalocean.svg" alt="DigitalOcean" class="h-8" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="text-white text-sm font-medium" style="display:none;">DigitalOcean</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="border-t border-gray-800 pt-8 mt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-400 text-sm">
+              &copy; 2025 SANBYTEZ (PTY) LTD (2025/929742/07). All rights reserved.
+            </p>
+            <div class="flex flex-wrap gap-6 text-sm">
+              <a href="#privacy" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#terms" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+              <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ====== Footer End ====== -->
+    <!-- ====== Footer End ====== -->
+
+
+
+    <!-- ====== Back To Top Start ====== -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-900 text-white rounded-full shadow-lg hover:bg-blue-800 hover:shadow-xl hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-40 flex items-center justify-center" aria-label="Back to top">
+      <i class="lni lni-chevron-up text-xl"></i>
+    </button>
+    <!-- ====== Back To Top End ====== -->
+
+    <!-- ====== All Javascript Files ====== -->
+    <script src="assets/js/services-data.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/contact-form.js"></script>
+    <script src="assets/js/cookie-consent.js"></script>
+    
+    <!-- PWA Service Worker -->
+    <script type="module">
+      // Register service worker for PWA
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => console.log('ServiceWorker registered'))
+          .catch(err => console.error('ServiceWorker registration failed:', err));
+      }
+    </script>
+  </body>
+</html>
